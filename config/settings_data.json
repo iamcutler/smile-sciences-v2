@@ -13,7 +13,7 @@
       "vimeo_url": "http://vimeo.com/shopify",
       "youtube_url": "https://www.youtube.com/user/shopify",
       "social_icons_style": "",
-      "use_logo": false,
+      "use_logo": true,
       "base_font_size": "16px",
       "base_font_family": "'Source Sans Pro', sans-serif",
       "featured_blog": "news",
