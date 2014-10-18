@@ -16,18 +16,18 @@ $heading-font-family:     $base-font-family;
 $heading-font-weight:     600;
 
 /* Table of content */
-/* 1.  Base styles
-   2.  Header
-   3.  Tables
-   4.  Layout
-   5.  Header
-   6.  Navigation
-   7.  Tags
-   8.  Social and payment methods
-   9.  Blog
-   10. Product and collection pages
-   11. Search form and search results
-   12. Footer
+/* 1.   Base styles
+   2.   Header
+   2.1. Navigation
+   4.   Layout
+   5.   Header
+   6.   Navigation
+   7.   Tags
+   8.   Social and payment methods
+   9.   Blog
+   10.  Product and collection pages
+   11.  Search form and search results
+   12.  Footer
 */
 
 /* =====================
@@ -47,6 +47,11 @@ html, body {
   color: $text-color;
 }
 
+.clearfix {
+  height: 0;
+  clear: both;
+}
+
 /* =====================
    2. Header
    ===================== */
@@ -55,8 +60,15 @@ header {
   &.main {
     border-bottom: 4px #0b99d6 solid;
   
+    /* override main container elements */
+    .main-container {
+      position: relative;
+      height: 152px;
+    }
+  
     a#logo:link,
     a#logo:visited {
+      float: left;
       padding: 20px 0;
       display: block;
     }
@@ -138,10 +150,41 @@ header {
 }
 
 /* =====================
+   2.1 Navigation
+   ===================== */
+   
+nav.main {
+  position: absolute;
+  right: 20px;
+  bottom: 0;
+  padding-bottom: 6px;
+  
+  ul {
+    li {
+      list-style: none;
+      display: inline-block;
+      
+      a:link, a:visited {
+        color: #FFF;
+        font-size: 18px;
+        font-weight: 300;
+        text-decoration: none;
+        padding: 12px 12px;
+        
+        &:hover {
+          background: #0b99d6;
+        }
+      }
+    }
+  }
+}
+
+/* =====================
    3. Layout
    ===================== */
  
 .main-container {
   max-width: 1200px;
   margin: auto;
+  padding: 0 20px;
 }

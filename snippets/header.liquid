@@ -31,15 +31,10 @@
     </div>
     {% endif %}
   
-    {% if settings.use_logo %}
     <a id="logo" href="/">
       <img src="{{ 'logo.svg' | asset_url }}" alt="Smile Sciences" />
     </a>
-    {% else %}
-    <a id="site-title" href="/">
-      {{ shop.name }}
-    </a>
-    {% endif %}
+    
     {% if template == 'index' %}
     {% comment %}
       Many SEO audit tools look for a h1 tag on the home page. Let's give 'em one.
@@ -48,5 +43,10 @@
     {% endcomment %}
     <h1 style="display: none;">{{ shop.name }}</h1>
     {% endif %}
+    
+    {% comment %}
+      Main Navigation
+    {% endcomment %}
+    {% include 'site-nav' %}
   </div>
 </header>
