@@ -1,0 +1,35 @@
+<section class="browse-collections">
+  <div class="main-container">
+    <h3>Start Browsing:</h3>
+    
+    <ul class="collections">
+      <li>
+        <figure>
+          <img src="{{ collections.teeth-whitening.image.src | img_url: 'medium' }}" alt="{{ collections.teeth-whitening.title }}" />
+        </figure>
+        
+        <div class="collection">
+          <h5>{{ collections.teeth-whitening.title }}</h5>
+          <p>
+            {{ collections.beauty.description | truncate: 150 }}
+          </p>
+          <a href="{{ collections.teeth-whitening.url }}" class="btn shop-collection">Shop this collection</a>
+        </div>
+      </li>
+      <li></li>
+      <li>
+        <figure>
+          <img src="{{ collections.beauty.image.src | img_url: 'medium' }}" alt="{{ collections.beauty.title }}" />
+        </figure>
+        
+        <div class="collection">
+          <h5>{{ collections.beauty.title }}</h5>
+          <p>
+            {{ collections.beauty.description | truncate: 150 }}
+          </p>
+          <a href="{{ collections.beauty.url }}" class="btn shop-collection">Shop this collection</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>

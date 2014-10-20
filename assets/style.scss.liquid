@@ -14,24 +14,50 @@ $base-font-family:        {{ settings.base_font_family }};
 $base-font-size:          {{ settings.base_font_size }};
 $heading-font-family:     $base-font-family;
 $heading-font-weight:     600;
+$font-weight:             300;
 
 /* Table of content */
-/* 1.   Base styles
-   2.   Header
-   2.1. Navigation
+/* 1.   Presets
+   2.   Base styles
+   3.   Header
+   3.1. Navigation
    4.   Layout
-   5.   Header
-   6.   Navigation
-   7.   Tags
-   8.   Social and payment methods
-   9.   Blog
-   10.  Product and collection pages
-   11.  Search form and search results
-   12.  Footer
+   5.   Home
+   6.   Footer
 */
 
 /* =====================
-   1. Base styles
+   1. Presets
+   ===================== */
+@mixin vertical-gradient($top, $bottom) {
+  background: #242424; /* Old browsers */
+  background: -moz-linear-gradient(top,  $top 0%, $bottom 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,$top), color-stop(100%,$bottom)); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  $top 0%,$bottom 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  $top 0%,$bottom 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  $top 0%,$bottom 100%); /* IE10+ */
+  background: linear-gradient(to bottom,  $top 0%,$bottom 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='$top', endColorstr='$bottom',GradientType=0 ); /* IE6-9 */
+}
+
+@mixin transition($statement) {
+  -webkit-transition: $statement;
+     -moz-transition: $statement;
+       -o-transition: $statement;
+      -ms-transition: $statement;
+          transition: $statement;
+}
+
+@mixin transform($statement) {
+  -webkit-transform: $statement;
+     -moz-transform: $statement;
+       -o-transform: $statement;
+      -ms-transform: $statement;
+          transform: $statement;
+}
+
+/* =====================
+   2. Base styles
    ===================== */
 
 * {
@@ -45,6 +71,7 @@ html, body {
   line-height: 1.6;
   font-family: $base-font-family;
   color: $text-color;
+  font-weight: $font-weight;
 }
 
 .clearfix {
@@ -52,8 +79,23 @@ html, body {
   clear: both;
 }
 
+/* Base button styling */
+.btn {
+  background: #464646;
+  color: #FFF;
+  font-size: 14px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 10px 16px;
+  @include transition(background 0.2s ease-in);
+  
+  &:hover {
+    background: #2f2f2f;
+  }
+}
+
 /* =====================
-   2. Header
+   3. Header
    ===================== */
 
 header {
@@ -150,7 +192,7 @@ header {
 }
 
 /* =====================
-   2.1 Navigation
+   3.1 Navigation
    ===================== */
    
 nav.main {
@@ -167,7 +209,7 @@ nav.main {
       a:link, a:visited {
         color: #FFF;
         font-size: 18px;
-        font-weight: 300;
+        font-weight: $font-weight;
         text-decoration: none;
         padding: 12px 12px;
         
@@ -180,7 +222,7 @@ nav.main {
 }
 
 /* =====================
-   3. Layout
+   4. Layout
    ===================== */
  
 .main-container {
@@ -188,3 +230,81 @@ nav.main {
   margin: auto;
   padding: 0 20px;
 }
+
+/* =====================
+   5. Home
+   ===================== */
+section {
+  &.browse-collections {
+    background: #363636;
+    padding: 20px 0;
+    
+    h3 {
+      font-size: 24px;
+      font-weight: $font-weight;
+      margin-bottom: 14px;
+    }
+    
+    /* Collections */
+    ul.collections {
+      white-space: nowrap;
+      
+      li {
+        list-style: none;
+        width: 50%;
+        min-height: 160px;
+        display: inline-block;
+        
+        &:nth-child(2) {
+          background: #5d5d5d;
+          width: 1px;
+        }
+        
+        /* Collection image */
+        figure {
+          float: left;
+          width: 50%;
+          text-align: center;
+          margin: 0;
+        }
+        
+        .collection {
+          float: right;
+          width: 50%;
+          
+          h5 {
+            color: #a6a6a6;
+            font-size: 24px;
+            font-weight: $font-weight;
+          }
+          
+          p {
+            white-space: normal;
+            margin-bottom: 12px;
+          }
+          
+          .btn.shop-collection {
+            background: #252525;
+            
+            &:hover {
+              background: #000;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+/* =====================
+   6. Footer
+   ===================== */   
+footer.main {
+  @include vertical-gradient('#242424', '#000000');
+  margin-top: 30px;
+  
+  .copyright {
+    font-size: 12px;
+  }
+}
+   
