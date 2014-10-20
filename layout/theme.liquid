@@ -54,19 +54,16 @@
 
   {% include 'header' %}
 
-  <div class="main-container">
-    <main id="main" role="main">
-      {{ content_for_layout }}
-    </main>
+  <main id="main" role="main">
+    {{ content_for_layout }}
+  </main>
 
-    {% include 'footer' %}
-
-    {% comment %}Shopify does not support Internet Explorer 6 nor 7. It does encourage themes to support IE8 until the end of 2014.{% endcomment %}
-    <!--[if lt IE 8]>
-    <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
-    
-  </div><!-- end of #container -->
+  {% comment %}Shopify does not support Internet Explorer 6 nor 7. It does encourage themes to support IE8 until the end of 2014.{% endcomment %}
+  <!--[if lt IE 8]>
+  <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+  <![endif]-->
+  
+  {% include 'footer' %}
 
   {{ 'shop.js'  | asset_url | script_tag }}
 
