@@ -1,4 +1,5 @@
-<footer>
+<footer class="main">
+  {% comment %}
   {% if linklists.footer.links.size > 0 %}
   <p role="navigation">
   {% for link in linklists.footer.links %}
@@ -14,7 +15,36 @@
     {% endfor %}
   </div>
   {% endunless %}
+  {% endcomment %}
   
-  <p role="contentinfo" class="small-print">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }}. {{ powered_by_link }}.</p>
-
+  <div class="main-container">
+    <a href="" id="footer-brand">
+      Smile Sciences
+    </a>
+    
+    <div id="newsletter-signup">
+      <h6>Sign up for our newsletter</h6>
+      <form>
+        <table>
+          <tr>
+            <td>
+              <input type="email" placeholder="Email Address:" name="newsletter-email" />
+            </td>
+            <td>
+              <input type="submit" value="Submit">
+            </td>
+          </tr>
+          <tr>
+            <td id="newsletter-memo">
+              Sign up for all things {{ shop.name }} related like news and deals.
+            </td>
+            <td></td>
+          </tr>
+        </table>  
+      </form>
+    </div>
+    
+    <div class="clearfix"></div>
+    <div id="copyright">Copyright &copy; {{ "now" | date: "%Y" }} {{ shop.name }} - All Rights Reserved.</div>
+  </div>
 </footer>

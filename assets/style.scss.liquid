@@ -566,8 +566,60 @@ section {
 footer.main {
   @include vertical-gradient(#242424, #000000);
   margin-top: 30px;
+  padding: 30px 0 6px 0;
   
-  .copyright {
+  #footer-brand {
+    float: left;
+    background: url('{{ 'logo.png' | asset_url }}') no-repeat;
+    background: url('{{ 'logo.svg' | asset_url }}') no-repeat;
+    width: 250px;
+    height: 104px;
+    display: block;
+    text-indent: -9999px;
+    overflow: hidden;
+    margin: 30px;
+  }
+  
+  #newsletter-signup {
+    float: left;
+    max-width: 324px;
+    margin: 30px 0 0 170px;
+    
+    h6 {
+      font-size: 22px;
+      font-weight: $font-weight;
+    }
+    
+    input {
+      height: 34px;
+      border: none;
+      outline: none;
+      
+      &[type='email'] {
+        background: #363636;
+        width: 220px;
+        padding: 0 8px;
+      }
+      
+      &[type='submit'] {
+        background: #0396d5;
+        padding: 0 14px;
+      }
+    }
+    
+    table {
+      tr {
+        td {
+          &#newsletter-memo {
+            font-size: 12px;
+            padding-top: 6px;
+          }
+        }
+      }
+    }
+  }
+  
+  #copyright {
     font-size: 12px;
   }
 }
