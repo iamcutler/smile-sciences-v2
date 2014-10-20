@@ -15,6 +15,7 @@ $base-font-size:          {{ settings.base_font_size }};
 $heading-font-family:     $base-font-family;
 $heading-font-weight:     600;
 $font-weight:             300;
+$carousel-navbar-height:  136px;
 
 /* Table of content */
 /* 1.   Presets
@@ -24,6 +25,7 @@ $font-weight:             300;
    4.   Layout
    5.   Home
    6.   Footer
+   7.   Animations
 */
 
 /* =====================
@@ -54,6 +56,20 @@ $font-weight:             300;
        -o-transform: $statement;
       -ms-transform: $statement;
           transform: $statement;
+}
+
+@mixin animation($statement) {
+  -webkit-animation: $statement;
+     -moz-animation: $statement;
+          animation: $statement;
+}
+
+@mixin border-radius($radius) {
+  -webkit-border-radius: $radius;
+     -moz-border-radius: $radius;
+       -o-border-radius: $radius;
+      -ms-border-radius: $radius;
+          border-radius: $radius;
 }
 
 /* =====================
@@ -235,6 +251,183 @@ nav.main {
    5. Home
    ===================== */
 section {
+  /* carousel */
+  &#carousel {
+    #carousel-container {
+      background: #CCC;
+      height: 464px;
+    }
+    
+    #carousel-navbar {
+      @include vertical-gradient(#000000, #242424);
+      height: $carousel-navbar-height;
+      
+      /* Product spotlight */
+      a#product-spotlight:link,
+      a#product-spotlight:visited {
+        position: relative;
+        float: left;
+        width: 220px;
+        text-align: center;
+        padding-top: 76px;
+        line-height: 24px;
+        text-decoration: none;
+        
+        figure {
+          position: absolute;
+          top: -156px;
+          background: #FFF;
+          width: 180px;
+          height: 180px;
+          padding: 20px;
+          margin: 0;
+          @include border-radius(200px);
+        }
+        
+        span {
+          width: 100%;
+          display: block;
+          
+          &#spotlight-title {
+            color: #b5b5b5;
+            font-size: 20px;
+          }
+          
+          &#spotlight-product {
+            color: #0c9ad6;
+            font-size: 16px;
+            font-weight: bold;
+          }
+        }
+      }
+      
+      /* Carousel navigation */
+      #carousel-navigation {
+        height: $carousel-navbar-height;
+        padding-left: 220px;
+        
+        .carousel-btn {
+          background-color: #252525;
+          width: 38px;
+          height: $carousel-navbar-height;
+          overflow: hidden;
+          cursor: pointer;
+          @include transition(background-position 0.2s ease-in-out);
+          
+          &.left {
+            float: left;
+            background: #252525 url('{{ 'carousel-buttons.png' | asset_url }}') 0 0 no-repeat;
+            
+            &:hover {
+              background-position: 0 -136px;
+            }
+          }
+          
+          &.right {
+            float: right;
+            background: #252525 url('{{ 'carousel-buttons.png' | asset_url }}') -38px 0 no-repeat;
+            
+            &:hover {
+              background-position: -38px -136px;
+            }
+          }
+        }
+        
+        /* Carousel slides */
+        #carousel-slides-container {
+          height: $carousel-navbar-height;
+          overflow: hidden;
+          
+          ul {
+            white-space: nowrap;
+            
+            li {
+              width: 350px;
+              height: $carousel-navbar-height;
+              list-style: none;
+              display: inline-block;
+              border-right: 1px #464646 solid;
+              white-space: normal;
+              
+              &:nth-last-child(1) {
+                border-right: none;
+              }
+              
+              .thumbnail {
+                float: left;
+                background: #000;
+                width: 82px;
+                height: 82px;
+                margin: 24px 0 0 20px;
+                overflow: hidden;
+                text-align: center;
+                border: 4px #FFF solid;
+                @include border-radius(50%);
+                white-space: nowrap;
+                
+                img {
+                  height: 100%;
+                  @include transform(scale(1.5));
+                }
+              }
+              
+              .preview-description {
+                float: right;
+                width: 200px;
+                margin: 14px 20px 0 0;
+                
+                span {
+                  &.title {
+                    color: #c2c2c2;
+                    font-size: 24px;
+                    @include transition(color 0.4s ease-in);
+                  }
+                }
+                
+                p {
+                  font-size: 14px;
+                  @include transition(color 0.4s ease-in);
+                }
+              }
+              
+              &.active {
+                &:before {
+                  content: '';
+                  position: absolute;
+                  background: url('{{ 'carousel-nav-arrow.png' | asset_url }}') no-repeat;
+                  width: 48px;
+                  height: 26px;
+                  display: block;
+                  text-indent: -9999px;
+                  margin: -26px 0 0 140px;
+                }
+                
+                /* Active thumbnail */
+                .thumbnail {
+                  img {
+                    @include transform(scale(1));
+                  }
+                }
+                
+                .preview-description {
+                  span {
+                    &.title {
+                      color: #0396d5;
+                    }
+                  }
+                  
+                  p {
+                    color: #b5b5b5;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
   /* Browse collections */
   &#browse-collections {
     background: #363636;
@@ -308,4 +501,10 @@ footer.main {
     font-size: 12px;
   }
 }
+
+/* =====================
+   6. Animations
+   ===================== */
+
+
    
