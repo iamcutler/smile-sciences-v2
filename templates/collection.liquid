@@ -86,6 +86,8 @@
   {{ paginate | default_pagination }}
 </div>
 {% endif %}
+{% assign banner-image = 'learning-page-banner.png' %}
+{% include 'page-banner' with banner-image %}
 
 {% endpaginate %}
 
