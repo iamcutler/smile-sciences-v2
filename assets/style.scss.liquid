@@ -87,6 +87,14 @@ $carousel-navbar-height:  136px;
   filter: alpha(opacity=$opacity-ie); //IE8
 }
 
+@mixin appearance($state) {
+  -webkit-appearance: $state;
+     -moz-appearance: $state;
+       -o-appearance: $state;
+      -ms-appearance: $state;
+          appearance: $state;
+}
+
 @mixin keyframes($animation-name) {
   @-webkit-keyframes $animation-name {
     @content;
