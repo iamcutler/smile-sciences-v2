@@ -25,8 +25,9 @@ $carousel-navbar-height:  136px;
    4.   Layout
    5.   Home
    6.   Collections
-   7.   Footer
-   8.   Animations
+   7.   Product
+   8.   Footer
+   9.   Animations
 */
 
 /* =====================
@@ -144,6 +145,7 @@ html, body {
   text-align: center;
   text-transform: uppercase;
   text-decoration: none;
+  border: none;
   padding: 10px 16px;
   @include transition(background 0.2s ease-in);
   
@@ -622,83 +624,6 @@ section {
       margin-bottom: 12px;
     }
     
-    /* Products */
-    ul.collection-grid {
-      li {
-        float: left;
-        width: 288px;
-        height: 476px;
-        list-style: none;
-        border: 4px #555 solid;
-        padding: 0;
-        margin: 0 5px 5px 0;
-        @include transition(all 0.2s ease-in);
-        
-        &:nth-child(4n) {
-          margin-right: 0;
-        }
-        
-        .product-image-wrap {
-          width: 250px;
-          height: 246px;
-          overflow: hidden;
-          text-align: center;
-          padding: 20px;
-          
-          img {
-            max-width: 100%;
-            max-height: 246px;
-          }
-        }
-        
-        .product-caption {
-          @include vertical-gradient(#000000, #242424);
-          padding: 0 20px 20px 20px;
-          
-          span {
-            &.product-title {
-              color: #0396d5;
-              font-size: 22px;
-            }
-            
-            &.product-price {
-              color: #FFF;
-              font-size: 18px;
-              font-weight: bold;
-              text-align: center;
-              display: block;
-              margin: 10px 0;
-            }
-          }
-          
-          p {
-            &.product-description {
-              height: 44px;
-              color: #b5b5b5;
-              font-size: 14px;
-            }
-          }
-          
-          .btn.view-product {
-            display: block;
-            
-            &:hover {
-              background-color: #000;
-            }
-          }
-        }
-        
-        &:hover {
-          border-color: #0b99d6;
-          background-color: #252525;
-          
-          .product-caption {
-            background: none;
-          }
-        }
-      }
-    }
-    
     p#no-products {
       font-size: 32px;
       color: #0396d5;
@@ -708,12 +633,213 @@ section {
   }
 }
 
+/* Products */
+ul.collection-grid {
+  li {
+    float: left;
+    background: #000;
+    width: 288px;
+    height: 476px;
+    list-style: none;
+    border: 4px #555 solid;
+    padding: 0;
+    margin: 0 5px 5px 0;
+    @include transition(all 0.2s ease-in);
+    
+    &:nth-child(4n) {
+      margin-right: 0;
+    }
+    
+    .product-image-wrap {
+      width: 250px;
+      height: 246px;
+      overflow: hidden;
+      text-align: center;
+      padding: 20px;
+      
+      img {
+        max-width: 100%;
+        max-height: 246px;
+      }
+    }
+    
+    .product-caption {
+      @include vertical-gradient(#000000, #242424);
+      padding: 0 20px 20px 20px;
+      
+      span {
+        &.product-title {
+          color: #0396d5;
+          font-size: 22px;
+        }
+        
+        &.product-price {
+          color: #FFF;
+          font-size: 18px;
+          font-weight: bold;
+          text-align: center;
+          display: block;
+          margin: 10px 0;
+        }
+      }
+      
+      p {
+        &.product-description {
+          height: 44px;
+          color: #b5b5b5;
+          font-size: 14px;
+        }
+      }
+      
+      .btn.view-product {
+        display: block;
+        
+        &:hover {
+          background-color: #000;
+        }
+      }
+    }
+    
+    &:hover {
+      border-color: #0b99d6;
+      background-color: #252525;
+      
+      .product-caption {
+        background: none;
+      }
+    }
+  }
+}
+
 /* =====================
-   7. Footer
+   7. Product
+   ===================== */  
+section {
+  &#product {
+    margin: 80px 0;
+    
+    /* Product photos */
+    #product-photos {
+      position: relative;
+      float: left;
+      width: 46%;
+      height: 320px;
+      text-align: center;
+      
+      .product-arrow {
+        position: absolute;
+        top: 50%;
+        background: url('{{ 'product-arrows.png' | asset_url }}') 0 0 no-repeat;
+        width: 21px;
+        height: 67px;
+        overflow: hidden;
+        display: block;
+        text-indent: -9999px;
+        cursor: pointer;
+        margin-top: -34px;
+        
+        &:hover {
+          background-position-y: -70px;
+        }
+        
+        &.right {
+          right: 0;
+          background-position-x: -29px;
+        }
+        
+        &.disabled {
+          @include opacity(0.5);
+          cursor: default;
+          
+          &:hover {
+            background-position-y: 0;
+          }
+        }
+      }
+    }
+    
+    /* Product details */
+    #product-details {
+      float: right;
+      color: #b5b5b5;
+      width: 46%;
+      
+      h1 {
+        color: #0396d5;
+        font-size: 30px;
+        font-weight: $font-weight;
+        border-bottom: 1px #7d7d7d solid;
+        padding-bottom: 4px;
+        margin: 0;
+      }
+      
+      #product-variants {
+        background: #252525;
+        padding: 10px;
+        margin: 6px 0;
+        
+        table {
+          width: 100%;
+          display: table;
+        }
+        
+        select.single-option-selector {
+          background: #111;
+          width: 100%;
+          color: #FFF;
+          font-size: 14px;
+          font-weight: $font-weight;
+          padding: 8px 12px;
+          border: none;
+          outline: none;
+          @include border-radius(0);
+          @include appearance(none);
+        }
+      }
+      
+      #product-description {
+        font-size: 16px;
+      }
+      
+      #product-add {
+        text-align: right;
+        margin-top: 30px;
+        
+        .btn.add-to-cart {
+          background: #0b99d6 url('{{ 'add-cart-btn.png' | asset_url }}') center center no-repeat;
+          background: #0b99d6 url('{{ 'add-cart-btn.svg' | asset_url }}') center center no-repeat;
+          text-indent: -9999px;
+          padding: 16px 40px;
+          overflow: hidden;
+        }
+      }
+    }
+  }
+  
+  &#related-products {
+    background: #111;
+    padding: 40px 0;
+    
+    h3 {
+      color: #0396d5;
+      font-size: 26px;
+      font-weight: $font-weight;
+      line-height: 30px;
+    }
+    
+    h6 {
+      color: #cbcbcb;
+      font-size: 16px;
+      font-weight: $font-weight;
+    }
+  }
+}
+
+/* =====================
+   8. Footer
    ===================== */   
 footer.main {
   @include vertical-gradient(#242424, #000000);
-  margin-top: 30px;
   padding: 30px 0 6px 0;
   
   #footer-brand {
@@ -773,7 +899,7 @@ footer.main {
 }
 
 /* =====================
-   8. Animations
+   9. Animations
    ===================== */
 
 

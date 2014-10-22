@@ -1,0 +1,58 @@
+<div id="product-details">
+  <h1 itemprop="name">{{ product.title }}</h1>
+  
+  {% assign hide_default_title = false %}
+  {% if product.variants.size == 1 and product.variants.first.title contains 'Default' %}
+    {% assign hide_default_title = true %}
+  {% endif %}       
+
+  <div id="product-variants" class="{% if hide_default_title %} hidden{% endif %}">
+    <table>
+      <tr>
+        <td width="150">Choose your option:</td>
+        <td>
+          <select id="product-select" class="dropdown" name="id">
+          {% for variant in product.variants %}
+            <option{% if variant == product.selected_or_first_available_variant %} selected{% endif %} value="{{ variant.id }}">
+            {{ variant.title }} - {{ variant.price | money }}
+            </option>
+          {% endfor %}
+          </select>
+        </td>
+      </tr>
+    </table>
+  </div>
+  
+  {% assign product_vendor_handle = product.vendor | handle %}
+  <div id="product-description" itemprop="description">
+    {{ product.description }}
+  </div>
+  
+  <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="delta">
+    <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
+    {% if product.available %}
+    <link itemprop="availability" href="http://schema.org/InStock" />
+    {% else %}
+    <link itemprop="availability" href="http://schema.org/OutOfStock" />
+    {% endif %}
+    <p>
+      {% assign variant = product.selected_or_first_available_variant %}
+      {% if product.compare_at_price > product.price %}
+      <span class="product-price on-sale" itemprop="price">{{ variant.price | money }}</span>
+      <s class="product-compare-price">{{ variant.compare_at_price | money }}</s>
+      {% else %}
+      <span class="product-price" itemprop="price">{{ variant.price | money }}</span>
+      {% endif %}
+    </p>
+  </div>
+        
+  {% comment %} 
+  <div id="backorder" class="hidden">
+    <p>{{ '%s is back-ordered. We will ship it separately in 10 to 15 days.' | replace: '%s', '<span id="selected-variant"></span>' }}</p>
+  </div>
+  {% endcomment %}
+    
+  <div id="product-add">
+    <input type="submit" name="add" id="add" class="btn add-to-cart" value="{{ add_to_cart | escape }}">
+  </div>
+</div>
