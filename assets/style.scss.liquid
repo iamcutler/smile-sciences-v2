@@ -27,8 +27,9 @@ $carousel-navbar-height:  136px;
    6.   Sub pages
    7.   Collections
    8.   Product
-   9.   Footer
-   10.   Animations
+   9.   Shopping Cart
+   10.  Footer
+   11.  Animations
 */
 
 /* =====================
@@ -141,10 +142,6 @@ html, body {
 a:link, a:visited {
   color: $link-color;
   text-decoration: none;
-  
-  &:hover {
-    text-decoration: underline;
-  }
 }
 
 /* Base button styling */
@@ -579,6 +576,7 @@ section {
           
           .btn.shop-collection {
             background: #252525;
+            color: #FFF;
             
             &:hover {
               background: #000;
@@ -883,7 +881,14 @@ section {
 }
 
 /* =====================
-   9. Footer
+   9. Shopping Cart
+   ===================== */  
+section#cart {
+  margin: 40px 0;
+}
+
+/* =====================
+   10. Footer
    ===================== */   
 footer.main {
   @include vertical-gradient(#242424, #000000);
@@ -946,7 +951,7 @@ footer.main {
 }
 
 /* =====================
-   10. Animations
+   11. Animations
    ===================== */
 
 
