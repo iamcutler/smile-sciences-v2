@@ -1,32 +1,32 @@
 {% comment %}Is this product on sale?{% endcomment %}
 {% assign on_sale = false %}
-{% if product.compare_at_price > product.price %}
+{% if item.compare_at_price > item.price %}
   {% assign on_sale = true %}
 {% endif %}
 
-<li class="{% unless product.available %}sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}">
+<li class="{% unless item.available %}sold-out{% endunless %}{% if on_sale %} on-sale{% endif %}">
   <div class="product-image-wrap">  
-    <a href="{{ product.url | within: collection }}">
-      <img src="{{ product | img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" />
+    <a href="{{ item.url | within: collection }}">
+      <img src="{{ item | img_url: 'grande' }}" alt="{{ item.featured_image.alt | escape }}" />
     </a>
   </div>
 
   <div class="product-caption">
-    <span class="product-title">{{ product.title }}</span>
+    <span class="product-title">{{ item.title }}</span>
     
     <p class="product-description">
-      {{ product.description | truncate: 72 }}
+      {{ item.description | truncate: 72 }}
     </p>
     
     <span class="product-price">
-      {% if product.price_varies %}From{% endif %}
-      {{ product.price | money }}
+      {% if item.price_varies %}From{% endif %}
+      {{ item.price | money }}
       {% if on_sale %}
-      <s class="compare-at-price">{{ product.compare_at_price | money }}</s>
+      <s class="compare-at-price">{{ item.compare_at_price | money }}</s>
       {% endif %}
     </span>
     
-    <a href="{{ product.url | within: collection }}" class="btn view-product">View this product</a>
+    <a href="{{ item.url | within: collection }}" class="btn view-product">View this product</a>
   </div>  
 </li>
 

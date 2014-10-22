@@ -63,8 +63,8 @@
     {% endif %}
     
     <ul class="collection-grid">
-    {% for product in collection.products %}
-      {% include 'product-grid-item' with products_per_row %}
+    {% for item in collection.products %}
+      {% include 'product-grid-item' with products_per_row with item %}
     {% else %}
       <p id="no-products">
         There are no current products in this collection.
