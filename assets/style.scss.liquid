@@ -24,10 +24,11 @@ $carousel-navbar-height:  136px;
    3.1. Navigation
    4.   Layout
    5.   Home
-   6.   Collections
-   7.   Product
-   8.   Footer
-   9.   Animations
+   6.   Sub pages
+   7.   Collections
+   8.   Product
+   9.   Footer
+   10.   Animations
 */
 
 /* =====================
@@ -135,6 +136,15 @@ html, body {
 .clearfix {
   height: 0;
   clear: both;
+}
+
+a:link, a:visited {
+  color: $link-color;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 /* Base button styling */
@@ -599,7 +609,21 @@ section {
 }
 
 /* =====================
-   6. Collections
+   6. Sub pages
+   ===================== */   
+section#page {
+  margin: 40px 0;
+  
+  h1 {
+    color: #0396d5;
+    font-size: 30px;
+    font-weight: $font-weight;
+    margin-bottom: 20px;
+  }
+}
+
+/* =====================
+   7. Collections
    ===================== */   
 section {
   &#product-collection {
@@ -712,7 +736,7 @@ ul.collection-grid {
 }
 
 /* =====================
-   7. Product
+   8. Product
    ===================== */  
 section {
   &#product {
@@ -859,7 +883,7 @@ section {
 }
 
 /* =====================
-   8. Footer
+   9. Footer
    ===================== */   
 footer.main {
   @include vertical-gradient(#242424, #000000);
@@ -922,7 +946,7 @@ footer.main {
 }
 
 /* =====================
-   9. Animations
+   10. Animations
    ===================== */
 
 
