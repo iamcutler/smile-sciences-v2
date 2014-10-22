@@ -28,6 +28,7 @@
     {{ product.description }}
   </div>
   
+  {% comment %}
   <div id="product-price" itemprop="offers" itemscope itemtype="http://schema.org/Offer" class="delta">
     <meta itemprop="priceCurrency" content="{{ shop.currency }}" />
     {% if product.available %}
@@ -45,6 +46,7 @@
       {% endif %}
     </p>
   </div>
+  {% endcomment %}
         
   {% comment %} 
   <div id="backorder" class="hidden">
