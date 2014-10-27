@@ -1,0 +1,38 @@
+var SmileSciences = (function() {
+  // Namespace
+  var SmileSciences = {};
+  
+  SmileSciences.navigation = {};
+  
+  SmileSciences.navigation.dropdown = function(timing) {
+    var timing = timing || 300;
+  
+    $('nav.main ul li a').click(function() {
+      var handle = this.text.toLowerCase(),
+          subnav = $('ul.sub-navigation'),
+          // Track count for dropdown
+          count = 0;
+      
+      // Loop and find available dropdown
+      subnav.each(function(index) {
+        if($(this).hasClass(handle)) {
+          $(this).slideToggle(timing);
+          // Add to count
+          count++;
+        } else {
+          $(this).slideUp(timing);
+        }
+      });
+      
+      if(count == 0) return true;
+      
+      return false;
+    });
+  };
+  
+  return SmileSciences;
+})();
+
+(function(SmileSciences) {
+  SmileSciences.navigation.dropdown();
+})(SmileSciences);

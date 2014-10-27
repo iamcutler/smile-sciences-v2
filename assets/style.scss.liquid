@@ -296,6 +296,29 @@ nav.main {
   }
 }
 
+/* Sub navigation */
+ul.sub-navigation {
+  background: #0b99d6;
+  text-align: center;
+  padding: 6px 0 4px 0;
+  display: none;
+  
+  li {
+    list-style: none;
+    display: inline-block;
+    padding: 0 10px;
+    
+    a:link, a:visited {
+      color: #FFF;
+      @include transition(color 0.2s ease-in);
+      
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+}
+
 /* =====================
    4. Layout
    ===================== */
