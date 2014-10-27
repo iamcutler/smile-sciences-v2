@@ -4,18 +4,19 @@
    Most theme settings should be stored in Sassy CSS variables here, for reuse.
    ========================================================================== */
 /*!theme settings */
-$site-max-width:          60 * {{ settings.base_font_size }};
-$breakpoint-small-screen: 30 * {{ settings.base_font_size }};
-$gutter:                  1 *  {{ settings.base_font_size }}; 
-$background-color:        {{ settings.background_color }};
-$text-color:              {{ settings.text_color }};
-$link-color:              {{ settings.link_color }};
-$base-font-family:        {{ settings.base_font_family }};
-$base-font-size:          {{ settings.base_font_size }};
-$heading-font-family:     $base-font-family;
-$heading-font-weight:     600;
-$font-weight:             300;
-$carousel-navbar-height:  136px;
+$site-max-width:            60 * {{ settings.base_font_size }};
+$breakpoint-small-screen:   30 * {{ settings.base_font_size }};
+$gutter:                    1 *  {{ settings.base_font_size }}; 
+$background-color:          {{ settings.background_color }};
+$text-color:                {{ settings.text_color }};
+$link-color:                {{ settings.link_color }};
+$base-font-family:          {{ settings.base_font_family }};
+$base-font-size:            {{ settings.base_font_size }};
+$heading-font-family:       $base-font-family;
+$heading-font-weight:       600;
+$font-weight:               300;
+$carousel-navbar-height:    136px;
+$section-header-font-size:  30px;
 
 /* Table of content */
 /* 1.   Presets
@@ -637,7 +638,7 @@ section#page {
   
   h1 {
     color: #0396d5;
-    font-size: 30px;
+    font-size: $section-header-font-size;
     font-weight: $font-weight;
     margin-bottom: 20px;
   }
@@ -653,7 +654,7 @@ section {
     h1 {
       color: #0396d5;
       font-weight: $font-weight;
-      font-size: 30px;
+      font-size: $section-header-font-size;
       line-height: 36px;
       margin: 0 0 30px 0;
     }
@@ -825,7 +826,7 @@ section {
       
       h1 {
         color: #0396d5;
-        font-size: 30px;
+        font-size: $section-header-font-size;
         font-weight: $font-weight;
         border-bottom: 1px #7d7d7d solid;
         padding-bottom: 4px;
