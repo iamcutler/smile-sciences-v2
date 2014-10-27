@@ -908,6 +908,139 @@ section {
    ===================== */  
 section#cart {
   margin: 40px 0;
+  
+  h1 {
+    color: #0396d5;
+    font-size: $section-header-font-size;
+    font-weight: $font-weight;
+    line-height: 34px;
+    margin: 0;
+  }
+  
+  h6 {
+    color: #cbcbcb;
+    font-size: 16px;
+    font-weight: $font-weight;
+  }
+  
+  form {
+    margin: 40px 0;
+    
+    .cart-row {
+      float: left;
+      background: #111;
+      width: 100%;
+      clear: both;
+      margin-bottom: 6px;
+    
+      &.header {
+        background: none;
+        margin-bottom: 0;
+        
+        .row {
+          padding: 6px 0;
+          
+          .col {
+            padding-top: 0;
+          }
+        }
+      }
+    
+      .row {
+        height: 58px;
+        padding: 20px 0;
+        white-space: nowrap;
+        
+        .col {
+          width: 20%;
+          text-align: center;
+          display: inline-block;
+          padding-top: 8px;
+          
+          &:nth-child(1) {
+            text-align: left;
+          }
+          
+          input[type='number'] {
+            background: #252525;
+            width: 30px;
+            padding: 10px 20px;
+            text-align: center;
+            border: none;
+          }
+        }
+      }
+    }
+    
+    .item-img {
+      float: left;
+      background: #000;
+      width: 58px;
+      height: 58px;
+      text-align: center;
+      border: 4px #FFF solid;
+      overflow: hidden;
+      margin: -20px 16px 0 0;
+      @include border-radius(50%);
+      
+      img {
+        height: 58px;
+      }
+    }
+    
+    .main-container.cart-actions {
+      padding: 40px 0;
+      
+      .cart-action-column {
+        float: left;
+        width: 46%;
+      
+        &.note {
+          textarea[name='note'] {
+            background: #181818;
+            width: 400px;
+            min-height: 100px;
+            color: #FFF;
+            font-size: 16px;
+            padding: 8px;
+            border: none;
+            outline: none;
+            resize: vertical;
+          }
+        }
+        
+        &.checkout {
+          float: right;
+          text-align: right;
+          
+          h3{
+            &.subtotal {
+              
+            }
+          }
+          
+          h6 {
+            &.cart-notice {
+              color: #F00;
+              font-size: 14px;
+              margin: 6px 0 12px 0;
+            }
+          }
+        }
+        
+        .btn.proceed {
+          background: #0b99d6;
+        }
+      }
+    }
+  }
+  
+  .btn.cart-remove {
+    background: #0b99d6 url('{{ 'cart-remove-icon.png' | asset_url }}') center center no-repeat;
+    background: #0b99d6 url('{{ 'cart-remove-icon.svg' | asset_url }}') center center no-repeat;
+    color: #FFF;
+    padding: 10px 20px;
+  }
 }
 
 /* =====================
