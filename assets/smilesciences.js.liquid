@@ -71,6 +71,11 @@ var SmileSciencesSlider = (function() {
           }
         }
       });
+      
+      // Resize slide with window
+      $(window).resize(function() {
+        self.resize_slide_width();
+      });
     },
     start: function() {
       var self = this;
@@ -118,6 +123,11 @@ var SmileSciencesSlider = (function() {
       } else {
         current++;
       }
+    },
+    resize_slide_width: function(size) {
+      var size = size || window.innerWidth;
+
+      slide_width = size;
     }
   };
 })();
