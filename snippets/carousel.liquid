@@ -5,9 +5,9 @@
       <li style="background: {{ slide.bg_color }}">
         <div class="main-container">
           <figure>
-            {% if settings.link %}<a href="">{% endif %}
+            {% if slide.link != "" %}<a href="{{ slide.link }}" target="_blank">{% endif %}
               <img src="{{ slide.slide_img | asset_url }}" alt="" />
-            {% if settings.link %}</a>{% endif %}
+            {% if settings.link != "" %}</a>{% endif %}
           </figure>
         </div>
       </li>
