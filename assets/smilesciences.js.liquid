@@ -132,8 +132,72 @@ var SmileSciencesSlider = (function() {
   };
 })();
 
-(function(navigation, slider) {
-  navigation.dropdown();
+/* Product */
+var SmileSciencesProductImgSlider = (function() {
+  var current = 0,
+      productCount = $('.product-photo-container ul li').length;
   
+  return {
+    init: function() {
+      var self = this,
+          slide_width = 552,
+          timing = 300;
+      
+      $('.product-arrow').click(function() {
+        // Check if arrow is disabled
+        if(!$(this).hasClass('disabled')) {
+          // Left arrow
+          if($(this).hasClass('left')) {
+            self.previous(function(previous) {
+              if(previous < productCount) {
+                $('.product-photo-container ul').animate({
+                  marginLeft: '-' + (slide_width * previous) + 'px' 
+                });
+              }
+            });
+          }
+          
+          // Right arrow
+          if($(this).hasClass('right')) {
+            self.next(function(next) {
+              if(next < productCount) {
+                $('.product-photo-container ul').animate({
+                  marginLeft: '-' + (slide_width * next) + 'px' 
+                });
+              }
+            });
+          }
+        }
+        
+        // Manage button active state
+        // Left btn
+        if(current == 0) {
+          $('.product-arrow.left').addClass('disabled');
+        } else {
+          $('.product-arrow.left').removeClass('disabled');
+        }
+        
+        // Right btn
+        if(current == (productCount - 1)) {
+          $('.product-arrow.right').addClass('disabled');
+        } else {
+          $('.product-arrow.right').removeClass('disabled');
+        }
+      });
+    },
+    next: function(cb) {
+      current++;
+      if(typeof cb === 'function') cb(current);
+    },
+    previous: function(cb) {
+      current--;
+      if(typeof cb === 'function') cb(current);
+    }
+  };
+})();
+
+(function(navigation, slider, product_slider) {
+  navigation.dropdown();
   slider.init();
-})(SmileSciencesNavigation, SmileSciencesSlider);
+  product_slider.init();
+})(SmileSciencesNavigation, SmileSciencesSlider, SmileSciencesProductImgSlider);
