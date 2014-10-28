@@ -2,8 +2,8 @@ var SmileSciences = (function() {
   // Namespace
   var SmileSciences = {};
   
+  // Navigation
   SmileSciences.navigation = {};
-  
   SmileSciences.navigation.dropdown = function(timing) {
     var timing = timing || 300;
   
@@ -30,9 +30,102 @@ var SmileSciences = (function() {
     });
   };
   
+  // Slideshow
+  SmileSciences.slider = {
+    current: 1,
+    timing: 5000,
+    slide_timing: 400,
+    paused: false,
+    slide_width: window.innerWidth,
+    nav_width: 350
+  };
+  
+  SmileSciences.slider.init = function() {
+    var self = this;
+        
+    setTimeout(function() {
+      self.start;
+    }, self.timing);
+    
+    // Init function call set to 2
+    self.current = 2;
+    
+    // Client event on navigation
+    $('#carousel-slides-container ul li').click(function() {
+      self.stop();
+      self.goTo(($(this).index() + 1));
+    });
+    
+    // Click event on arrows
+    $('.carousel-btn').click(function() {
+      // Check if arrow is active
+      if(!$(this).hasClass('unactive')) {
+        // Left arrow
+        if($(this).hasClass('left')) {
+          self.goTo((self.current - 2));
+          self.stop();
+        }
+        
+        // Right arrow
+        if($(this).hasClass('right')) {
+          self.goTo(self.current);
+          self.stop();
+        }
+      }
+    });
+  };
+  
+  SmileSciences.slider.start = setInterval(function() { SmileSciences.slider.goTo() }, SmileSciences.slider.timing);
+  
+  SmileSciences.slider.stop = function() {
+    clearInterval(SmileSciences.slider.start);
+  };
+  
+  SmileSciences.slider.goTo = function(target) {
+    var target = target || (this.current),
+        self = this;
+    
+    // Protect against the left button
+    if(target < 1) target = 1;
+    
+    self.current = target;
+    
+    // Animate slider
+    $('#carousel-container ul').animate({
+      left: '-' + ((target - 1) * self.slide_width) + 'px'
+    }, self.slide_timing);
+    
+    // Animate navigation
+    if({{ settings.slider.size }} > 3) {
+      $('#carousel-slides-container ul').animate({
+        left: '-' + ((target - 1) * self.nav_width) + 'px'
+      }, self.slide_timing);
+    }
+    
+    // Add/Remove active state
+    $('#carousel-slides-container ul li').removeClass('active');
+    $('#carousel-slides-container ul li:nth-child('+ target +')').addClass('active');
+    
+    // Unactive button is first slide
+    if(target == 1) {
+      $('.carousel-btn.left').addClass('unactive');
+    } else {
+      $('.carousel-btn.left').removeClass('unactive');
+    }
+    
+    // Reset current count if greater than total slides
+    if(target >= {{ settings.slider.size }}) {
+      self.current = 1;
+    } else {
+      self.current++;
+    }
+  };
+  
   return SmileSciences;
 })();
 
 (function(SmileSciences) {
   SmileSciences.navigation.dropdown();
+  
+  SmileSciences.slider.init();
 })(SmileSciences);

@@ -15,6 +15,40 @@
         "youtube": "https://www.youtube.com/user/shopify",
         "social_icons_style": ""
       },
+      "slider": [
+        {
+          "title": "Enjoy the cleanse",
+          "short_desc": "A gentle mild foaming cleanser derived from Coconut and Sugar Beets.",
+          "preview_img": "slider-preview-1.jpg",
+          "bg_color": "#000",
+          "slide_img": "slider-img-1.jpg",
+          "link": "http://www.smilesciences.com"
+        },
+        {
+          "title": "Enjoy the cleanse",
+          "short_desc": "A gentle mild foaming cleanser derived from Coconut and Sugar Beets.",
+          "preview_img": "slider-preview-1.jpg",
+          "bg_color": "#CCC",
+          "slide_img": "slider-img-1.jpg",
+          "link": ""
+        },
+        {
+          "title": "Enjoy the cleanse",
+          "short_desc": "A gentle mild foaming cleanser derived from Coconut and Sugar Beets.",
+          "preview_img": "slider-preview-1.jpg",
+          "bg_color": "#CCC",
+          "slide_img": "slider-img-1.jpg",
+          "link": ""
+        },
+        {
+          "title": "Enjoy the cleanse",
+          "short_desc": "A gentle mild foaming cleanser derived from Coconut and Sugar Beets.",
+          "preview_img": "slider-preview-1.jpg",
+          "bg_color": "#CCC",
+          "slide_img": "slider-img-1.jpg",
+          "link": ""
+        }
+      ],
       "use_logo": true,
       "base_font_size": "16px",
       "base_font_family": "'Helvetica Neue', sans-serif",

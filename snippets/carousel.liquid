@@ -1,5 +1,20 @@
 <section id="carousel">
-  <div id="carousel-container"></div>
+  <div id="carousel-container">
+    <ul>
+      {% for slide in settings.slider %}
+      <li style="background: {{ slide.bg_color }}">
+        <div class="main-container">
+          <figure>
+            {% if settings.link %}<a href="">{% endif %}
+              <img src="{{ slide.slide_img | asset_url }}" alt="" />
+            {% if settings.link %}</a>{% endif %}
+          </figure>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+  
   <div id="carousel-navbar">
     <div class="main-container">
       <!-- Product spotlight -->
@@ -21,50 +36,26 @@
       
       <!-- Carousel navigation -->
       <div id="carousel-navigation">
-        <div class="carousel-btn left"></div>
-        <div class="carousel-btn right"></div>
+        <div class="carousel-btn left unactive"></div>
+        <div class="carousel-btn right {% if settings.slider.size < 3 %}unactive{% endif %}"></div>
         
         <div id="carousel-slides-container">
           <ul>
-            <li class="active">
+            {% for slide in settings.slider %}
+            <li {% if forloop.first %}class="active"{% endif %}>
               <div class="thumbnail">
-                <img src="{{ 'carousel-product-placeholder.jpg' | asset_url }}" alt="" />
+                <img src="{{ slide.preview_img | asset_url }}" alt="" />
               </div>
               
               <div class="preview-description">
-                <span class="title">Enjoy the cleanse</span>
+                <span class="title">{{ slide.title }}</span>
                 
                 <p>
-                  A gentle mild foaming cleanser derived from Coconut and Sugar Beets.
+                  {{ slide.short_desc | truncate: 70 }}
                 </p>
               </div>
             </li>
-            <li>
-              <div class="thumbnail">
-                <img src="{{ 'carousel-product-placeholder.jpg' | asset_url }}" alt="" />
-              </div>
-              
-              <div class="preview-description">
-                <span class="title">Enjoy the cleanse</span>
-                
-                <p>
-                  A gentle mild foaming cleanser derived from Coconut and Sugar Beets.
-                </p>
-              </div>
-            </li>
-            <li>
-              <div class="thumbnail">
-                <img src="{{ 'carousel-product-placeholder.jpg' | asset_url }}" alt="" />
-              </div>
-              
-              <div class="preview-description">
-                <span class="title">Enjoy the cleanse</span>
-                
-                <p>
-                  A gentle mild foaming cleanser derived from Coconut and Sugar Beets.
-                </p>
-              </div>
-            </li>
+            {% endfor %}
           </ul>
         </div>
       </div>
