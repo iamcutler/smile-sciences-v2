@@ -1078,6 +1078,28 @@ section#cart {
   }
 }
 
+.main-container.empty-cart {
+  text-align: center;
+  margin: 80px auto;
+  
+  i {
+    background: url('{{ 'empty-cart-icon.png' | asset_url }}') center no-repeat;
+    background: url('{{ 'empty-cart-icon.svg' | asset_url }}') center no-repeat;
+    width: 200px;
+    height: 192px;
+    display: block;
+    margin: 0 auto 20px auto;
+  }
+  
+  h2 {
+    font-weight: $font-weight;
+  }
+  
+  h3 {
+    font-weight: $font-weight;
+  }
+}
+
 /* =====================
    10. Footer
    ===================== */   
