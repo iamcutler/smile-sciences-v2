@@ -67,6 +67,10 @@
 
   {{ 'shop.js'  | asset_url | script_tag }}
   {{ 'smilesciences.js'  | asset_url | script_tag }}
+  {% if template contains 'cart' %}
+  {{ '//cdn.shopify.com/s/shopify/api.jquery.js' | script_tag }}
+  {{ 'cart.js' | asset_url| script_tag }}
+  {% endif %}
 
 </body>
 </html>
