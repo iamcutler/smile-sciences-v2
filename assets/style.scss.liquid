@@ -30,8 +30,9 @@ $section-header-font-size:  30px;
    8.   Product
    9.   Shopping Cart
    9.1  Cart order upsale
-   10.  Footer
-   11.  Animations
+   10.  Search
+   11.  Footer
+   12.  Animations
 */
 
 /* =====================
@@ -1332,7 +1333,54 @@ section#cart {
 }
 
 /* =====================
-   10. Footer
+   10. Search
+   ===================== */
+section#search-results {
+  margin: 80px 0;
+  
+  p.no-results {
+    text-align: center;
+    font-size: 22px;
+    font-weight: $font-weight;
+  }
+  
+  ul {
+    li {
+      list-style: none;
+      background: #111;
+      padding: 10px 30px;
+      margin-bottom: 10px;
+      
+      &:nth-last-child(1) {
+        margin-bottom: 0;
+      }
+      
+      .thumbnail {
+        float: left;
+        width: 58px;
+        height: 58px;
+        overflow: hidden;
+        border: 4px #FFF solid;
+        @include border-radius(50%);
+        margin: 0 20px 0 0;
+        
+        img {
+          width: 58px;
+          min-height: 58px;
+        }
+      }
+      
+      .result-details {
+        h1, h2, h3, h4, h5, h6 {
+          font-weight: $font-weight;
+        }
+      }
+    }
+  }
+}
+
+/* =====================
+   11. Footer
    ===================== */   
 footer.main {
   @include vertical-gradient(#242424, #000000);
@@ -1395,7 +1443,7 @@ footer.main {
 }
 
 /* =====================
-   11. Animations
+   12. Animations
    ===================== */
 
 
