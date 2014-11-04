@@ -358,6 +358,70 @@ ul.sub-navigation {
 }
 
 /* =====================
+   3.2 Mobile navigation
+   ===================== */
+nav.mobile-navigation {
+  background: #0b99d6;
+  display: none;
+  
+  .mobile-btn {
+    position: relative;
+    float: left;
+    width: 22px;
+    height: 12px;
+    padding: 14px;
+    margin-left: 10px;
+    cursor: pointer;
+    
+    i.bar {
+      background: #FFF;
+      width: 22px;
+      height: 3px;
+      display: block;
+      @include transition(all 0.2s linear);
+      @include transform(rotate(0deg));
+      
+      &:nth-last-child(1) {
+        @include transform(rotate(0deg));
+        margin-top: 6px;
+      }
+    }
+    
+    &.active {
+      i.bar {
+        position: absolute;
+      
+        &:nth-child(1) {
+          top: 20px;
+          @include transform(rotate(45deg));
+        }
+        
+        &:nth-last-child(1) {
+          top: 14px;
+          @include transform(rotate(-45deg));
+        }
+      }
+    }
+  }
+  
+  ul {
+    display: none;
+    
+    li {
+      list-style: none;
+      padding: 6px 0;
+      
+      a:link, a:visited {
+        width: 100%;
+        color: #FFF;
+        text-align: center;
+        display: block;
+      }
+    }
+  }
+}
+
+/* =====================
    4. Layout
    ===================== */
  

@@ -72,4 +72,13 @@ jQuery(function($) {
     switchImage($(this).attr('href'), null, $('.product-photo-container img')[0]);
   } );
   
+  /* Mobile */
+  /*==========================*/
+  
+  // Navigation
+  $('.mobile-btn').click(function() {
+    $(this).toggleClass('active');
+    $('.mobile-navigation ul').slideToggle();
+  });
+  
 });
