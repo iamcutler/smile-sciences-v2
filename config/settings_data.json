@@ -56,7 +56,57 @@
       "homepage_page": "frontpage",
       "homepage_collection": "frontpage",
       "products_per_row": "4",
-      "number_of_rows": "4"
+      "number_of_rows": "4",
+      "home_content" : [
+        {
+          "type" : 1,
+          "link": "http://www.smilesciences.com",
+          "video_type": "",
+          "video_id": "",
+          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
+          "image_alt": ""
+        },
+        {
+          "type" : 2,
+          "link": "",
+          "video_type": "youtube",
+          "video_id": "i_pzbjW_EsE",
+          "image": "",
+          "image_alt": ""
+        },
+        {
+          "type" : 1,
+          "link": "http://www.smilesciences.com",
+          "video_type": "",
+          "video_id": "",
+          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
+          "image_alt": ""
+        },
+        {
+          "type" : 1,
+          "link": "http://www.smilesciences.com",
+          "video_type": "",
+          "video_id": "",
+          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
+          "image_alt": ""
+        },
+        {
+          "type" : 1,
+          "link": "http://www.smilesciences.com",
+          "video_type": "",
+          "video_id": "",
+          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
+          "image_alt": ""
+        },
+        {
+          "type" : 1,
+          "link": "",
+          "video_type": "",
+          "video_id": "",
+          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
+          "image_alt": ""
+        }
+      ]
     }
   }
 }

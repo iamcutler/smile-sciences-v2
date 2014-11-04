@@ -1,12 +1,21 @@
 <section id="home">
   <div class="main-container">
     <ul>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
-      <li></li>
+    {% for home in settings.home_content %}
+      <li>
+        {% if home.type == 1 %}
+          {% if home.link != "" %}<a href="{{ home.link }}" target="_blank">{% endif %}
+          <img src="{{ home.image }}" alt="{{ home.image_alt }}" />
+          {% if home.link != "" %}</a>{% endif %}
+        {% else if home.type == 2 %}
+          {% if home.video_type == "youtube" %}
+            <iframe width="100%" height="100%" src="//www.youtube.com/embed/{{ home.video_id }}" frameborder="0" allowfullscreen></iframe>
+          {% else if home.video_type == "vimeo" %}
+            <iframe src="//player.vimeo.com/video/{{ home.video_id }}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+          {% endif %}
+        {% endif %}
+      </li>
+    {% endfor %}
     </ul>
   </div>
 </section>
