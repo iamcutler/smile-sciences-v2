@@ -23,6 +23,7 @@ $section-header-font-size:  30px;
    2.   Base styles
    3.   Header
    3.1. Navigation
+   3.2  Mobile navigation
    4.   Layout
    5.   Home
    6.   Sub pages
@@ -32,7 +33,8 @@ $section-header-font-size:  30px;
    9.1  Cart order upsale
    10.  Search
    11.  Footer
-   12.  Animations
+   12.  Media queries
+   13.  Animations
 */
 
 /* =====================
@@ -223,8 +225,9 @@ header {
   
     a#logo:link,
     a#logo:visited {
-      float: left;
-      padding: 24px 0 20px 0;
+      position: absolute;
+      top: 24px;
+      left: 20px;
       display: block;
     }
   
@@ -1511,7 +1514,121 @@ footer.main {
 }
 
 /* =====================
-   12. Animations
+   12. Media queries
+   ===================== */
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1240px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+  /* Products */
+  
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+  /* Home */
+  section#carousel {
+    display: none;
+  }
+  
+  /* Header */
+  #search-wrapper {
+    display: none;
+  }
+  
+  nav.main {
+    display: none;
+  }
+  
+  nav.mobile-navigation {
+    display: block;
+  }
+}
+
+/* Extra Small Devices, Phones */ 
+@media only screen and (max-width : 480px) {
+  /* Header */
+  #search-wrapper {
+    display: none;
+  }
+  
+  nav.main {
+    display: none;
+  }
+  
+  /* Home */
+  section#browse-collections {
+    ul.collections {
+      li {
+        float: left;
+        width: 100%;
+        
+        &:nth-child(1) {
+          margin-bottom: 30px;
+        }
+        
+        &:nth-child(even) {
+          display: none;
+        }
+        
+        figure {
+          float: none;
+          width: auto;
+        }
+        
+        .collection {
+          float: none;
+          width: auto;
+          
+          .btn.shop-collection {
+            display: block;
+          }
+        }
+      }
+    }
+  }
+  
+  section#home {
+    ul {
+      margin: 0;
+      
+      li {
+        width: 100%;
+        margin: 6px 0;
+      }
+    }
+  }
+  
+  /* Products */
+  section#product-collection {
+    ul.collection-grid {
+      li {
+        float: none;
+        width: 98%;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/* Custom, iPhone Retina */ 
+@media only screen and (max-width : 320px) {
+  /* Products */
+  section#product-collection {
+    ul.collection-grid {
+      li {
+        width: 100%;
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+/* =====================
+   13. Animations
    ===================== */
 
 
