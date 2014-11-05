@@ -12,10 +12,8 @@
       <meta itemprop="image" content="{{ product | img_url: 'grande' }}" />
       
       <form action="/cart/add" method="post" enctype="multipart/form-data">
-        
-        {% include 'product-photos' %}
-        
         {% include 'product-details' %}
+        {% include 'product-photos' %}
       </form>
     </div>
   </div>

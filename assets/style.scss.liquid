@@ -1631,6 +1631,51 @@ section#error404 {
     }
   }
   
+  /* Product */
+  section#product {
+    #product-details {
+      float: none;
+      width: auto;
+    }
+    
+    #product-photos {
+      float: none;
+      width: auto;
+      height: auto;
+      margin-top: 40px;
+      
+      .product-photo-container {
+        ul {
+          li {
+            width: auto;
+            margin-bottom: 20px;
+            display: block;
+            
+            &:nth-last-child(1) {
+              margin-bottom: 0;
+            }
+            
+            img {
+              max-width: 80%;
+            }
+          }
+        }
+        
+        .product-arrow {
+          display: none;
+        }
+      }
+    }
+  }
+  
+  section#related-products {
+    ul {
+      li {
+        width: auto;
+      }
+    }
+  }
+  
   /* Cart */
   section#cart {
     form {
