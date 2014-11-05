@@ -24,6 +24,19 @@ var SmileSciencesNavigation = (function() {
         
         return false;
       });
+    },
+    mobile: {
+      dropdown: function() {
+        $('nav.mobile-navigation ul li').has('ul').click(function(event) {
+          $(this).find('ul').slideToggle();
+        });
+      },
+      expand: function() {
+        $('.mobile-btn').click(function() {
+          $(this).toggleClass('active');
+          $('.mobile-navigation > ul').slideToggle();
+        });
+      }
     }
   };
 })();
@@ -198,6 +211,8 @@ var SmileSciencesProductImgSlider = (function() {
 
 (function(navigation, slider, product_slider) {
   navigation.dropdown();
+  navigation.mobile.expand();
+  navigation.mobile.dropdown();
   slider.init();
   product_slider.init();
 })(SmileSciencesNavigation, SmileSciencesSlider, SmileSciencesProductImgSlider);
