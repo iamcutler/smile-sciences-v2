@@ -1631,6 +1631,42 @@ section#error404 {
     }
   }
   
+  /* Cart */
+  section#cart {
+    form {
+      .cart-row {
+        .row {
+          .col {
+            width: 23%;
+          
+            &:nth-child(2) {
+              display: none;
+            }
+            
+            .item-img {
+              display: none;
+            }
+          }
+        }
+      }
+      
+      .main-container.cart-actions {
+        padding: 40px 20px;
+        
+        .cart-action-column {
+          float: none;
+          width: auto;
+          
+          &.note {
+            textarea[name='note'] {
+              width: 96%;
+            }
+          }
+        }
+      }
+    }
+  }
+  
   /* Footer */
   footer {
     #newsletter-signup {
