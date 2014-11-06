@@ -27,6 +27,7 @@ $section-header-font-size:  30px;
    4.   Layout
    5.   Home
    6.   Sub pages
+   6.1. FAQ
    7.   Collections
    8.   Product
    9.   Shopping Cart
@@ -34,8 +35,9 @@ $section-header-font-size:  30px;
    10.  Search
    11.  Footer
    12.  Errors
-   13.  Media queries
-   14.  Animations
+   13.  FAQ
+   14.  Media queries
+   15.  Animations
 */
 
 /* =====================
@@ -794,6 +796,36 @@ section#page {
 }
 
 /* =====================
+   6.1. FAQ
+   ===================== */   
+section.faq {
+  h2 {
+    background: #252525;
+    font-weight: $font-weight;
+    font-size: 20px;
+    padding: 6px 10px;
+  }
+  
+  .question {
+    font-size: 20px;
+    padding: 10px;
+    border-bottom: 1px #252525 solid;
+    
+    &:nth-last-child(1) {
+      border: none;
+    }
+    
+    p {
+      color: #CCC;
+      
+      &.answer {
+        color: #0396d5;
+      }
+    }
+  }
+}
+
+/* =====================
    7. Collections
    ===================== */   
 section {
@@ -1533,7 +1565,7 @@ section#error404 {
 }
 
 /* =====================
-   13. Media queries
+   14. Media queries
    ===================== */
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1240px) {
@@ -1827,7 +1859,7 @@ section#error404 {
 }
 
 /* =====================
-   14. Animations
+   15. Animations
    ===================== */
 
 

@@ -106,7 +106,25 @@
           "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
           "image_alt": ""
         }
-      ]
+      ],
+      "faq": {
+        "teeth": [
+          {
+            "question": "This is a question?",
+            "answer": "This is an answer"
+          },
+          {
+            "question": "This is a question?",
+            "answer": "This is an answer"
+          }
+        ],
+        "beauty": [
+          {
+            "question": "This is a question?",
+            "answer": "This is an answer"
+          }
+        ]
+      }
     }
   }
 }

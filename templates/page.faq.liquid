@@ -1,0 +1,37 @@
+<section id="page">
+  <div class="main-container">
+    <h1>{{ page.title }}</h1>
+
+    {{ page.content }}
+  
+    <section class="faq">
+      <h2>Teeth</h2>
+      
+      {% for faq in settings.faq.teeth %}
+      <div class="question">
+        <p>
+          Q: {{ faq.question }}
+        </p>
+        <p class="answer">
+          A: {{ faq.answer }}
+        </p>
+      </div>
+      {% endfor %}
+    </section>
+    
+    <section class="faq">
+      <h2>Beauty</h2>
+      
+      {% for faq in settings.faq.beauty %}
+      <div class="question">
+        <p>
+          Q: {{ faq.question }}
+        </p>
+        <p class="answer">
+          A: {{ faq.answer }}
+        </p>
+      </div>
+      {% endfor %}
+    </section>
+  </div>
+</section>
