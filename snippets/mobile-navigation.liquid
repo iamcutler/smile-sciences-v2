@@ -27,7 +27,7 @@
       {% assign has_sub_categories = true %}
     {% endif %}
     <li class="{% if link.active or parent_link_active %} active{% endif %}{% if has_sub_menu or has_sub_categories %} has-dropdown{% endif %}{% if forloop.first %} first{% elsif forloop.last %} last{% endif %}">
-      <a href="{{ link.url }}" onclick="return false;">{{ link.title }}</a> 
+      <a href="{{ link.url }}" {% if has_sub_menu or has_sub_categories %}onclick="return false;"{% endif %}>{{ link.title }}</a> 
       {% if has_sub_menu or has_sub_categories %}
       <ul class="sub-nav">
         {% if has_sub_menu %}
