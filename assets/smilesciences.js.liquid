@@ -148,12 +148,13 @@ var SmileSciencesSlider = (function() {
 /* Product */
 var SmileSciencesProductImgSlider = (function() {
   var current = 0,
-      productCount = $('.product-photo-container ul li').length;
-  
+      container = $('.product-photo-container'),
+      productCount = container.find('ul li').length;
+      
   return {
     init: function() {
       var self = this,
-          slide_width = 552,
+          slide_width = container.width(),
           timing = 300;
       
       $('.product-arrow').click(function() {
