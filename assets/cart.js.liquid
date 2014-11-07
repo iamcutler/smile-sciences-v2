@@ -1,0 +1,207 @@
+var SmileSciencesUpsale = (function($, Shopify) {
+  return {
+    init: function() {
+      var self = this;
+      
+      if(document.cookie.indexOf('displayOffer') < 0) {
+        self.getProduct('teeth-whitening-kit', function(product) {
+          // Insert product in upsale
+          self.HTML.setThumbnail(product.images[0], '#product-upsale-image');
+          self.HTML.setName(product.title, '#upsale #product-column h2');
+          self.HTML.setDescription(product.description, '#upsale #product-column p#upsale-description');
+          self.HTML.setDescription(Shopify.formatMoney(product.compare_at_price), '#upsale #product-column #upsale-regular-price span');
+          self.HTML.setVariantOptions('product-select', product.variants);
+        });
+        
+        self.selectRecommend(3, function(items) {
+          for(var i = 0; i < items.length; i++) {
+            console.log(items[i]);
+          }
+        });
+      }
+    },
+    getProduct: function(handle, callback) {
+      Shopify.getProduct(handle, function(response) {
+        if(typeof callback === 'function') {
+          callback(response);
+        }
+      }); 
+    },
+    getProducts: function(cb) {
+      $.ajax({
+        url: '/products.json',
+        dataType: 'json',
+        success: function(response) {
+          if(typeof cb === 'function') cb(response);
+        },
+        error: function() {
+          throw "Error getting all products";
+        }
+      });
+    },
+    getRecommended: function(cb) {
+      var self = this,
+          cart = [],
+          candidates = [];
+      
+      self.cart.getItems(function(items) {
+        // Push cart items to array
+        for(var i = 0, item = items.items; i < items.items.length; i++) {
+          cart.push(item[i].id);
+        }
+        
+        // All available products        
+        self.getProducts(function(products) {
+          for(var p = 0, product = products.products; p < products.products.length; p++) {
+            var recommend = true;
+            
+            for(v = 0, variant = product[p].variants; v < variant.length; v++) {
+              // If the variant is available
+              if(variant[v].available) {
+                // Dont recommend existing product in cart
+                if(cart.indexOf(variant[v].id) >= 0) {
+                  recommend = false;
+                }
+                
+                if(!recommend) break;
+              }
+            }
+            
+            if(recommend) {
+              candidates.push(product[p]);
+            }
+          }
+
+          if(typeof cb === 'function') cb(candidates);
+        });
+      });
+    },
+    // Select limit of recommended items
+    selectRecommend: function(limit, cb) {
+      var limit = limit || 3;
+    
+      this.getRecommended(function(recommend) {
+        if(recommend instanceof Array) {
+          var items = recommend.sort().slice(0, (limit + 1));
+          
+          if(typeof cb === 'function') cb(items);
+        }
+      });
+    },
+    
+    offer: {
+      open: function(target, time) {
+        var time = time || 300;
+        
+        $(target).fadeIn(time)
+      },
+      close: function(target, time) {
+        var time = time || 300;
+        
+        $(target).fadeOut(time)
+        // Set cookie to not show offer twice
+        document.cookie = "displayOffer=false";
+      }
+    },
+    cart: {
+      getItems: function(cb) {
+        Shopify.getCart(function(cart) {
+          if(typeof cb === "function") cb(cart);
+        });
+      },
+      checkItem: function(item, callback) {
+        var item = item || {},
+        self = this;
+    
+        Shopify.getCart(function(cart) {
+          var cartItems = cart.items,
+              variants = item.variants,
+              count = 0;
+        
+          // Loop through items and make sure
+          // current offer is not in cart      
+          // If cart is not emtpy
+          if(cartItems.length > 0) {
+            for(c = 0; c < cartItems.length; c++) {
+              for(i = 0; i < variants.length; i++) {
+                if(cartItems[c].id === variants[i].id) {
+                  count++;
+                }
+              }
+            }
+          }
+          
+          // Check if up sale item is the only item in cart
+          if(cartItems.length == 1) {
+            // Loop through item variants
+            for(i = 0; i < variants.length; i++) {
+              // Up sale item is the only current item in cart
+              if(cartItems[0].variant_id == variants[i].id) {
+                self.removeItem(cartItems[0].variant_id, function() {
+                  window.location.reload();
+                });
+              }
+            }
+          }
+          
+          // If count is 0, success, and return callback function
+          if(count === 0 && cartItems.length > 0) {
+            callback();
+          }
+        });
+      },
+      addItem: function(item, quantity, callback) {
+        var quantity = quantity || 1;
+        
+        Shopify.addItem(item, quantity, function(response) {
+          if(typeof callback === "function") callback(response);
+        });
+      },
+      removeItem: function(item, callback) {
+        Shopify.removeItem(item, function(response) {
+          if(typeof callback === 'function') {
+            callback(response);
+          }
+        });
+      }
+    },
+    HTML: {
+      setName: function(name, target) {
+        $(target).append(name);
+      },
+      
+      setThumbnail: function(thumbnail, target) {
+        $(target).append('<img src="' + thumbnail + '" />');
+      },
+      
+      setDescription: function(desc, target) {
+        $(target).html(desc);
+      },
+      
+      setPrice: function(price, target) {
+        $(target).append(Shopify.formatMoney(price));
+      },
+      
+      setVariantOptions: function(target, variants) {
+        var variants = variants || {},
+            select = document.getElementById(target);
+        
+        for(var i = 0; i < variants.length; i++) {
+          if(variants[i].available) {
+            var opt = document.createElement('option');
+            
+            opt.value = variants[i].id;
+            opt.innerHTML = variants[i].title + ' - ' + Shopify.formatMoney(variants[i].price);
+            select.appendChild(opt);
+          }
+        }
+      }
+    }
+  };
+})(jQuery, Shopify);
+
+(function(upsale) {
+  
+  upsale.init();
+  
+})(SmileSciencesUpsale);
