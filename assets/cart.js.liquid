@@ -110,6 +110,8 @@ var SmileSciencesUpsale = (function($, Shopify) {
         $(target).fadeOut(time)
         // Set cookie to not show offer twice
         document.cookie = "displayOffer=false";
+        
+        window.location.reload();
       }
     },
     cart: {
