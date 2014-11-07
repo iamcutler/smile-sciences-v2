@@ -4,6 +4,8 @@ var SmileSciencesUpsale = (function($, Shopify) {
       var self = this;
       
       if(document.cookie.indexOf('displayOffer') < 0) {
+        $('#upsale-wrapper').fadeIn();
+      
         self.getProduct('teeth-whitening-kit', function(product) {
           // Insert product in upsale
           self.HTML.setThumbnail(product.images[0], '#product-upsale-image');
@@ -209,5 +211,11 @@ var SmileSciencesUpsale = (function($, Shopify) {
 (function(upsale) {
   
   upsale.init();
+  
+  $('.btn.continue-checkout').click(function(event) {
+    event.preventDefault();
+    
+    upsale.offer.close('#upsale-wrapper');
+  });
   
 })(SmileSciencesUpsale);
