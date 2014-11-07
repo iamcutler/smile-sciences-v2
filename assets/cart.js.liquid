@@ -15,7 +15,7 @@ var SmileSciencesUpsale = (function($, Shopify) {
         
         self.selectRecommend(3, function(items) {
           for(var i = 0; i < items.length; i++) {
-            console.log(items[i]);
+            self.HTML.addRecommendedItem(items[i]);
           }
         });
       }
@@ -195,6 +195,12 @@ var SmileSciencesUpsale = (function($, Shopify) {
             select.appendChild(opt);
           }
         }
+      },
+      
+      addRecommendedItem: function(product) {
+        var add_on = $('#add-ons ul');
+        
+        add_on.append('<li><div class="btn add-on">+</div><a href="/products/'+ product.handle +'" target="_blank"><div class="product-thumbnail"><img src="'+ product.images[0].src +'" alt="'+ product.title +'" /></div><div class="product-info"><span class="price">$'+ product.variants[0].price +'</span><h6>'+ product.title +'</h6>'+ product.body_html +' </div></a><div class="clearfix"></div></li>');
       }
     }
   };
