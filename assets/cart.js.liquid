@@ -1,4 +1,6 @@
 var SmileSciencesUpsale = (function($, Shopify) {
+  var add_on_index = 0;
+
   return {
     init: function() {
       var self = this;
@@ -165,6 +167,13 @@ var SmileSciencesUpsale = (function($, Shopify) {
             callback(response);
           }
         });
+      },
+      AddItemFromOffer: function(id, index) {
+        var items = $('#add-ons ul li');
+        
+        this.addItem(id, 1, function() {
+          items.eq(index).fadeOut();
+        });
       }
     },
     HTML: {
@@ -202,7 +211,10 @@ var SmileSciencesUpsale = (function($, Shopify) {
       addRecommendedItem: function(product) {
         var add_on = $('#add-ons ul');
         
-        add_on.append('<li><div class="btn add-on">+</div><a href="/products/'+ product.handle +'" target="_blank"><div class="product-thumbnail"><img src="'+ product.images[0].src +'" alt="'+ product.title +'" /></div><div class="product-info"><span class="price">$'+ product.variants[0].price +'</span><h6>'+ product.title +'</h6>'+ product.body_html +' </div></a><div class="clearfix"></div></li>');
+        add_on.append('<li><div class="btn add-on" onclick="SmileSciencesUpsale.cart.AddItemFromOffer('+ product.variants[0].id +', '+ add_on_index +')">+</div><a href="/products/'+ product.handle +'" target="_blank"><div class="product-thumbnail"><img src="'+ product.images[0].src +'" alt="'+ product.title +'" /></div><div class="product-info"><span class="price">$'+ product.variants[0].price +'</span><h6>'+ product.title +'</h6>'+ product.body_html +' </div></a><div class="clearfix"></div></li>');
+
+        // Track index for li elements
+        add_on_index++;
       }
     }
   };
