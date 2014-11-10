@@ -42,7 +42,25 @@
   
     <div id="add-ons">
       <h3>Recommended add-ons:</h3>
-      <ul></ul>
+      <ul>
+        {% for product in collections.recommended.products limit:3 %}
+          <li>
+            <div class="btn add-on" onclick="SmileSciencesUpsale.cart.addItemFromRecommended({{ product.variants[0].id }}, {{ forloop.index - 1 }})">+</div>
+            <a href="/products/{{ product.handle }}" target="_blank">
+              <div class="product-thumbnail">
+                <img src="{{ product.images[0].src | product_img_url: 'medium' }}" alt="{{ product.title }}" />
+              </div>
+              <div class="product-info">
+                <span class="price">{{ product.price | money }}</span>
+                <h6>{{ product.title }}</h6>
+                {{ product.description }}
+              </div>
+            </a>
+            
+            <div class="clearfix"></div>
+          </li>
+        {% endfor %}
+      </ul>
       
       <div id="upsale-actions">
         <a href="/cart" class="btn continue-checkout">
