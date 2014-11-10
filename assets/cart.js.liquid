@@ -1,5 +1,22 @@
+// Fisher-Yates shuffle
+Array.prototype.randSort = function() {
+  var i = this.length - 1;
+  var j, temp;
+
+  while (i > 0) {
+    j = Math.floor(Math.random() * (i + 1));
+    temp = this[i];
+    this[i] = this[j];
+    this[j] = temp;
+    i = i - 1;
+  }
+  
+  return this;
+};
+
 var SmileSciencesUpsale = (function($, Shopify) {
-  var add_on_index = 0;
+  var add_on_index = 0,
+      recommendId = 30592111;
 
   return {
     init: function() {
@@ -62,41 +79,16 @@ var SmileSciencesUpsale = (function($, Shopify) {
         }
       });
     },
-    getRecommended: function(cb) {
-      var self = this,
-          cart = [],
-          candidates = [];
-      
-      self.cart.getItems(function(items) {
-        // Push cart items to array
-        for(var i = 0, item = items.items; i < items.items.length; i++) {
-          cart.push(item[i].id);
+    getRecommended: function(id, cb) {
+      $.ajax({
+        url: '/admin/products.json?collection_id=' + id,
+        dataType: 'json',
+        success: function(products) {
+          if(typeof cb === 'function') cb(products.products);
+        },
+        error: function() {
+          throw "Error fetching recommended products";
         }
-        
-        // All available products        
-        self.getProducts(function(products) {
-          for(var p = 0, product = products.products; p < products.products.length; p++) {
-            var recommend = true;
-            
-            for(v = 0, variant = product[p].variants; v < variant.length; v++) {
-              // If the variant is available
-              if(variant[v].available) {
-                // Dont recommend existing product in cart
-                if(cart.indexOf(variant[v].id) >= 0) {
-                  recommend = false;
-                }
-                
-                if(!recommend) break;
-              }
-            }
-            
-            if(recommend) {
-              candidates.push(product[p]);
-            }
-          }
-
-          if(typeof cb === 'function') cb(candidates);
-        });
       });
     },
     setBtnOnClick: function(id) {
@@ -106,9 +98,9 @@ var SmileSciencesUpsale = (function($, Shopify) {
     selectRecommend: function(limit, cb) {
       var limit = limit || 3;
     
-      this.getRecommended(function(recommend) {
+      this.getRecommended(recommendId, function(recommend) {
         if(recommend instanceof Array) {
-          var items = recommend.sort().slice(0, (limit + 1));
+          var items = recommend.slice(0, limit).randSort();
           
           if(typeof cb === 'function') cb(items);
         }
