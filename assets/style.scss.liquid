@@ -1272,6 +1272,7 @@ section#cart {
     }
     
     #upsale {
+      position: relative;
       padding: 30px;
       
       #product-upsale-image {
@@ -1343,6 +1344,26 @@ section#cart {
         #upsale-actions {
           text-align: right;
           margin-top: 50px;
+        }
+      }
+      
+      #upsale-added {
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0,0,0,0.6);
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        display: none;
+        
+        .message {
+          position: absolute;
+          top: 50%;
+          width: 100%;
+          font-size: 30px;
+          text-align: center;
+          margin-top: -10px;
         }
       }
     }

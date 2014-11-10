@@ -24,6 +24,12 @@ var SmileSciencesUpsale = (function($, Shopify) {
                   self.HTML.setDescription(product.description, '#upsale #product-column p#upsale-description');
                   self.HTML.setDescription(Shopify.formatMoney(product.compare_at_price), '#upsale #product-column #upsale-regular-price span');
                   self.HTML.setVariantOptions('product-select', product.variants);
+                  // Set onclick for add btn
+                  self.setBtnOnClick(product.variants[0].id);
+                  // Set variant id
+                  $('select#product-select').bind('change', function() {
+                    self.setBtnOnClick($(this).val());
+                  });
                 }
               });
             });
@@ -93,6 +99,9 @@ var SmileSciencesUpsale = (function($, Shopify) {
         });
       });
     },
+    setBtnOnClick: function(id) {
+      $('.btn.add-to-cart').attr('onclick', 'SmileSciencesUpsale.offer.addItem('+ id +'); return false;');
+    },
     // Select limit of recommended items
     selectRecommend: function(limit, cb) {
       var limit = limit || 3;
@@ -120,6 +129,11 @@ var SmileSciencesUpsale = (function($, Shopify) {
         document.cookie = "displayOffer=false";
         
         window.location.reload();
+      },
+      addItem: function(id) {
+        Shopify.addItem(id, 1, function(response) {
+          $('#upsale-added').fadeIn();
+        });
       }
     },
     cart: {
