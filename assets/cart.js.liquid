@@ -12,12 +12,20 @@ var SmileSciencesUpsale = (function($, Shopify) {
             $('#upsale-wrapper').fadeIn();
       
             self.getProduct('teeth-whitening-kit', function(product) {
-              // Insert product in upsale
-              self.HTML.setThumbnail(product.images[0], '#product-upsale-image');
-              self.HTML.setName(product.title, '#upsale #product-column h2');
-              self.HTML.setDescription(product.description, '#upsale #product-column p#upsale-description');
-              self.HTML.setDescription(Shopify.formatMoney(product.compare_at_price), '#upsale #product-column #upsale-regular-price span');
-              self.HTML.setVariantOptions('product-select', product.variants);
+              // Check if upsale is in the cart
+              self.cart.checkItemInCart(cart, product, function(checked) {
+                // If found
+                if(checked) {
+                  $('#upsale').hide();
+                } else {
+                  // Insert product in upsale
+                  self.HTML.setThumbnail(product.images[0], '#product-upsale-image');
+                  self.HTML.setName(product.title, '#upsale #product-column h2');
+                  self.HTML.setDescription(product.description, '#upsale #product-column p#upsale-description');
+                  self.HTML.setDescription(Shopify.formatMoney(product.compare_at_price), '#upsale #product-column #upsale-regular-price span');
+                  self.HTML.setVariantOptions('product-select', product.variants);
+                }
+              });
             });
             
             self.selectRecommend(3, function(items) {
@@ -181,6 +189,24 @@ var SmileSciencesUpsale = (function($, Shopify) {
         this.addItem(id, 1, function() {
           items.eq(index).fadeOut();
         });
+      },
+      checkItemInCart: function(cart, item, callback) {
+        var found = false,
+            cart = cart || {},
+            item = item || {};
+        
+        // Loop cart items
+        for(var i = 0; i < cart.items.length; i++) {
+          // Loop item variants
+          for(var v = 0; v < item.variants.length; v++) {
+            if(item.variants[v].id == cart.items[i].variant_id) {
+              found = true;
+              break;
+            }
+          }
+        }
+        
+        if(typeof callback === 'function') callback(found);
       }
     },
     HTML: {
