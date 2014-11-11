@@ -28,6 +28,7 @@ $section-header-font-size:  30px;
    5.   Home
    6.   Sub pages
    6.1. FAQ
+   6.3. Redemptions
    7.   Collections
    8.   Product
    9.   Shopping Cart
@@ -442,6 +443,37 @@ nav.mobile-navigation {
   padding: 0 20px;
 }
 
+table#contact-form {
+  width: 100%;
+  
+  tbody {
+    tr {
+      td {
+        width: 50%;
+        padding: 10px 20px;
+        vertical-align: bottom;
+        
+        label {
+          display: block;
+        }
+        
+        input[type='text'],
+        input[type='email'],
+        select,
+        textarea {
+          background: #363636;
+          width: 100%;
+          color: #626262;
+          padding: 10px;
+          @include border-radius(6px);
+          border: none;
+          outline: none;
+        }
+      }
+    }
+  }
+}
+
 /* =====================
    5. Home
    ===================== */
@@ -822,6 +854,28 @@ section.faq {
         color: #0396d5;
       }
     }
+  }
+}
+
+/* =====================
+   6.3. Redemptions
+   ===================== */
+section#page.redeem {
+  .error-msg {
+    background: #F00;
+    margin: 10px 0;
+    
+    ul.error-list {
+      padding: 10px 30px;
+      
+      li {
+        color: #FFF;
+      }
+    }
+  }
+  
+  .error-msg.redeem-js {
+    display: none;
   }
 }
 
@@ -1619,6 +1673,27 @@ section#error404 {
   
   section.page-banner {
     display: none;
+  }
+  
+  /* Global */
+  table#contact-form {
+    tbody {
+      tr {
+        td {
+          float: left;
+          width: 100%;
+          padding: 0;
+          margin-bottom: 6px;
+          
+          input[type='text'],
+          input[type='email'],
+          select,
+          textarea {
+            padding: 10px 0 10px 10px;
+          }
+        }
+      }
+    }
   }
   
   /* Home */

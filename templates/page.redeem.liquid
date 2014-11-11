@@ -1,0 +1,255 @@
+{% assign banner-image = 'redeem-page-banner.png' %}
+{% include 'page-banner' with banner-image %}
+
+<section id="page" class="redeem">
+  <div class="main-container">
+    <h1>{{ page.title }}</h1>
+
+    {{ page.content }}
+  
+    {% form 'contact' %}
+      {% if form.posted_successfully? %}
+        <p class="success-msg">Thank you for redeeming your voucher! Your order will be processed immediately.</p>
+      {% else %}
+        {% if form.errors %}
+          <div class="error-msg">
+            <ul class="error-list">
+            {% for field in form.errors %}
+              {% if field == 'first_name' %}
+              <li>Your first name cannot be blank.</li>
+              {% endif %}
+              {% if field == 'last_name' %}
+              <li>Your last name cannot be blank.</li>
+              {% endif %}
+              {% if field == 'email' %}
+              <li>Please enter a valid email address.</li>
+              {% endif %}
+              {% if field == 'site_purchased' %}
+              <li>Please provide us with the website you purchased from.</li>
+              {% endif %}        
+              {% if field == 'quantity' %}
+              <li>Please provide your voucher quantity.</li>
+              {% endif %}
+              {% if field == 'voucher_number_1' %}
+              <li>You must enter at least one voucher number.</li>
+              {% endif %}
+              {% if field == 'first_name' %}
+              <li>Your first name cannot be blank.</li>
+              {% endif %}
+              {% if field == 'address' %}
+              <li>Please provide your address.</li>
+              {% endif %}
+              {% if field == 'city' %}
+              <li>Please provide your city.</li>
+              {% endif %}
+              {% if field == 'state' %}
+              <li>Please provide your state.</li>
+              {% endif %}
+              {% if field == 'zip_code' %}
+              <li>Please provide your zip code.</li>
+              {% endif %}
+              {% if field == 'country' %}
+              <li>Please provide your country.</li>
+              {% endif %}
+            {% endfor %}
+            </ul>
+          </div>
+          {% endif %}
+          
+        	<div class="error-msg redeem-js">
+              <ul class="error-list redeem"></ul>
+        	</div>
+      
+          <table id="contact-form" class="redeem">
+            <tr>
+              <td {% if form.errors contains 'first_name' %}class="has-error"{% endif %}>
+                <label for="first_name">First Name <span class="required">*</span></label>
+                <input type="text" id="first_name" name="contact[first_name]" />
+              </td>
+              <td {% if form.errors contains 'last_name' %}class="has-error"{% endif %}>
+                <label for="last_name">Last Name <span class="required">*</span></label>
+                <input type="text" id="last_name" name="contact[last_name]" />
+              </td>
+            </tr>
+            <tr>
+              <td {% if form.errors contains 'email' %}class="has-error"{% endif %}>
+                <label for="email">Email <span class="required">*</span></label>
+                <input type="email" class="email" id="email" name="contact[email]" />
+              </td>
+              <td>
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" name="contact[phone]" />
+              </td>
+            </tr>
+            <tr>
+              <td {% if form.errors contains 'site_purchased' %} class="has-error"{% endif %}>
+                <label for="site_purchased">Website Purchased <span class="required">*</span></label>
+                <input type="text" id="site_purchased" name="contact[site_purchased]" />
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td colspan="2" {% if form.errors contains 'quantity' %} class="has-error"{% endif %}>
+                <label for="quantity">Order Quantity <span class="required">*</span></label>
+                <select id="quantity" name="contact[quantity]">
+                  <option value="1">1</option>
+                  <option value="2">2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <td {% if form.errors contains 'voucher_number_1' %} class="has-error"{% endif %}>
+                <label for="voucher_number_1">
+                  Voucher Number <span class="required">*</span><br />
+                  <span style="font-size: 12px; color: #cbcbcb; font-weight: normal;">(Groupon customers, please enter 8 digit voucher number<br />found under barcode and NOT Groupon number. Thank You!)</span>
+                </label>
+                <input type="text" id="voucher_number_1" name="voucher[voucher_number_1]" />
+              </td>
+              <td class="voucherNum hidden">
+                <label for="voucher_number_2">Voucher Number 2</label>
+                <input type="text" id="voucher_number_2" name="voucher[voucher_number_2]" />
+              </td>
+            </tr>
+            <tr>
+              <td class="voucherNum hidden">
+                <label for="voucher_number_3">Voucher Number 3</label>
+                <input type="text" id="voucher_number_3" name="voucher[voucher_number_3]" />
+              </td>
+              <td class="voucherNum hidden">
+                <label for="voucher_number_4">Voucher Number 4</label>
+                <input type="text" id="voucher_number_4" name="voucher[voucher_number_4]" />
+              </td>
+            </tr>
+            <tr>
+              <td class="voucherNum hidden">
+                <label for="voucher_number_5">Voucher Number 5</label>
+                <input type="text" id="voucher_number_5" name="voucher[voucher_number_5]" />
+              </td>
+              <td class="voucherNum hidden">
+                <label for="voucher_number_6">Voucher Number 6</label>
+                <input type="text" id="voucher_number_6" name="voucher[voucher_number_6]" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label>Products Purchased <span class="required">*</span></label>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="teeth_kit" name="product[teeth_kit]" value="1" /> <span style="color: #00589b;">Teeth Whitening Kit includes pen &amp; LED light</span>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="sweet_teeth" name="product[sweet_teeth]" value="1" /> <span style="color: #f449ca;">Sweet Teeth Whitening Kit including pen &amp; LED light</span>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="rx_pen" name="product[rx_pen]" value="1" /> RX Strength Teeth Whitening Pens 2 Pen Pack
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="lovely_smiles" name="product[lovely_smiles]" value="1" /> Lovely Smiles Day &amp; Night Whitening Pens
+              </td>
+            </tr>
+            <tr>
+              <td>
+              	The B Brush 
+                <select id="the_b_brush" name="product[the_b_brush]">
+                	<option value="">Select</option>
+                	<option value="Black">Black</option>
+                	<option value="Gun Metal">Gun Metal</option>
+                	<option value="Sliver">Sliver</option>
+                	<option value="Gold">Gold</option>
+                	<option value="Blue">Blue</option>
+                	<option value="Pink">Pink</option>
+                </select>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+                <input type="checkbox" id="black_b_brush_set" name="product[black_b_brush_set]" value="1"> The Black B Brush Gift Set
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td>
+              	The Bling B Brush Gift Set 
+                <select id="bling_b_brush_set" name="product[bling_b_brush_set]">
+                	<option value="">Select</option>
+                	<option value="Pink">Pink</option>
+                	<option value="Gold">Gold</option>
+                	<option value="Blue">Blue</option>
+                </select>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td {% if form.errors contains 'address' %} class="has-error"{% endif %}>
+                <label for="address">Address <span class="required">*</span></label>
+                <input type="text" id="address" name="contact[address]" />
+              </td>
+              <td {% if form.errors contains 'address' %} class="has-error"{% endif %}>
+                <label for="address2">Apt, Unit, Suite, etc.</label>
+                <input type="text" id="address2" name="contact[address2]" />
+              </td>
+            </tr>
+            <tr>
+              <td {% if form.errors contains 'city' %} class="has-error"{% endif %}>
+                <label for="city">City <span class="required">*</span></label>
+                <input type="text" id="city" name="contact[city]" />
+              </td>
+              <td {% if form.errors contains 'state' %} class="has-error"{% endif %}>
+                <label for="state">State <span class="required">*</span></label>
+                <input type="text" id="state" name="contact[state]" />
+              </td>
+            </tr>
+            <tr>
+              <td {% if form.errors contains 'zip_code' %} class="has-error"{% endif %}>
+                <label for="zip_code">Zip Code <span class="required">*</span></label>
+                <input type="text" id="zip_code" name="contact[zip_code]" />
+              </td>
+              <td {% if form.errors contains 'country' %} class="has-error"{% endif %}>
+                <label for="country">Country <span class="required">*</span></label>
+                <input type="text" id="country" name="contact[country]" />
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <label for="comments">Order Comments</label>
+                <textarea id="comments" name="contact[comments]"></textarea>
+              </td>
+              <td></td>
+            </tr>
+            <tr>
+              <td align="right">
+                <input type="checkbox" id="mailingList" name="mailingList" checked="checked" /> Keep me informed on all the latest news and upcoming events.
+              </td>
+              <td align="right">
+                <input type="submit" class="btn" value="Redeem" />
+              </td>
+            </tr>
+      	</table>
+      {% endif %}
+  	<input type="hidden" name="voucher[company]" value="SS" />
+    {% endform %}
+  
+    <div class="loading">
+      <div class="redeeming">
+        <div class="loader"></div>
+      </div>
+    </div>
+  </div>
+</section>
