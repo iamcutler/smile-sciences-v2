@@ -1623,6 +1623,42 @@ footer.main {
     }
   }
   
+  ul.social {
+    position: absolute;
+    top: -24px;
+    left: 50%;
+    margin-left: -86px;
+    
+    li {
+      width: 49px;
+      height: 49px;
+      overflow: hidden;
+      list-style: none;
+      margin: 0 4px;
+      display: inline-block;
+      
+      a:Link, a:visited {
+        background: url('{{ 'social-links.png' | asset_url }}') 0 0 no-repeat;
+        width: 49px;
+        height: 49px;
+        text-indent: -9999px;
+        display: block;
+      }
+      
+      &.facebook a {
+        background-position-x: 0;
+      }
+      
+      &.twitter a {
+        background-position-x: -56px;
+      }
+      
+      &.youtube a {
+        background-position-x: -112px;
+      }
+    }
+  }
+  
   #copyright {
     font-size: 12px;
   }
