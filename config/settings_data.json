@@ -111,21 +111,58 @@
       "faq": {
         "teeth": [
           {
-            "question": "This is a question?",
-            "answer": "This is an answer"
+            "question": "PEN: How long should I keep the gel on?",
+            "answer": "The Smile Sciences pen is worn for only 20 minutes a day. It can be used for up to 10 days in a row."
           },
           {
-            "question": "This is a question?",
-            "answer": "This is an answer"
+            "question": "PEN: How long will the pen last?",
+            "answer": "Each pen has 14 treatments."
+          },
+          {
+            "question": "PEN: What should I do with left over gel?",
+            "answer": "Store your pens in a dry cool place. Each box has a expiration date."
+          },
+          {
+            "question": "PEN: What are the ingredients?",
+            "answer": "12% Hydrogen Peroxide, Propylene Glycol, Kosher Glycerine, Peppermint essential oil, Triethanolamine, deionized water, Xylitol"
+          },
+          {
+            "question": "KIT: Molding the thermo-fitting mouth trays?",
+            "answer": "Bring 4 inches of water to a boil and remove from heat to cool for 6-7 minutes.<br /><br />Submerge one of the mouth trays into the hot water for 10-12 seconds until tray appears soft. (Important: for best results do not overheat mouth trays)<br /><br />Place the mouth tray into your mouth covering your upper teeth.<br /><br />Close your mouth and suck all the air and excess water from the tray, creating suction between the tray and your teeth.<br /><br />Gently push the tray against the front of your teeth by pushing against your upper lip.<br /><br />Wait 12-15 seconds before removing the tray from your mouth.<br /><br />Place the mouth tray into a cup of cold water for 12 seconds to complete curing process.<br /><br />Repeat steps for lower mouth tray."
+          },
+          {
+            "question": "KIT: Trim the trays to the correct size?",
+            "answer": "After molding both mouth trays, use scissors to cut any excess material from the tops of the trays at the gum-line. Trimming the trays at the gum line will avoid any possible tissue irritation.<br /><br />Use scissors to cut the finger tabs from both trays."
+          },
+          {
+            "question": "KIT: Whitening your teeth",
+            "answer": "Place a small drop of gel onto each tooth impression on the upper and lower mouth trays. (Do not overload trays; a little goes a long way.)<br /><br />Put gentle pressure on the upper mouth tray by pushing on your upper lip with your fingers in order to ensure a tight fit. Do the same on the lower mouth tray.<br /><br />Wear trays for approximately 20-30 minutes.<br /><br />For faster results place the LED light in front of your trays to activate gel.<br /><br />Once the time is completed, remove mouth trays and rinse out your mouth.<br /><br />Rinse trays in lukewarm water and store in a clean dry place.<br /><br />Repeat daily until desired shade is achieved."
           }
         ],
         "beauty": [
           {
-            "question": "This is a question?",
-            "answer": "This is an answer"
+            "question": "Beauty Coming Soon",
+            "answer": "Beauty Coming Soon."
           }
         ]
-      }
+      },
+      "tutorials": [
+        {
+          "title": "Teeth Whitening Kit",
+          "video_id": "O7IKh0iNNes",
+          "video_type": "youtube"
+        },
+        {
+          "title": "Teeth Whitening Kit",
+          "video_id": "O7IKh0iNNes",
+          "video_type": "youtube"
+        },
+        {
+          "title": "Teeth Whitening Kit",
+          "video_id": "O7IKh0iNNes",
+          "video_type": "youtube"
+        }
+      ]
     }
   }
 }
