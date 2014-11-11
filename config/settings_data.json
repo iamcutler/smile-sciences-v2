@@ -18,35 +18,27 @@
       },
       "slider": [
         {
-          "title": "Enjoy the cleanse",
-          "short_desc": "A gentle mild foaming cleanser derived from Coconut and Sugar Beets.",
-          "preview_img": "slider-preview-1.jpg",
+          "title": "8 Shades",
+          "short_desc": "Get up to 8 shades lighter with Smile Sciences!",
+          "preview_img": "8-shades-preview-slider.jpg",
           "bg_color": "#000",
-          "slide_img": "slider-img-1.jpg",
+          "slide_img": "8-shades-slider.jpg",
+          "link": ""
+        },
+        {
+          "title": "RX Whitening Pen",
+          "short_desc": "Fast and convenient - long lasting results!",
+          "preview_img": "rx-strength-preview-slider.jpg",
+          "bg_color": "#0086c3",
+          "slide_img": "rx-strength-slider.jpg",
           "link": "http://www.smilesciences.com"
         },
         {
-          "title": "Enjoy the cleanse",
-          "short_desc": "A gentle mild foaming cleanser derived from Coconut and Sugar Beets.",
-          "preview_img": "slider-preview-1.jpg",
-          "bg_color": "#CCC",
-          "slide_img": "slider-img-1.jpg",
-          "link": ""
-        },
-        {
-          "title": "Enjoy the cleanse",
-          "short_desc": "A gentle mild foaming cleanser derived from Coconut and Sugar Beets.",
-          "preview_img": "slider-preview-1.jpg",
-          "bg_color": "#CCC",
-          "slide_img": "slider-img-1.jpg",
-          "link": ""
-        },
-        {
-          "title": "Enjoy the cleanse",
-          "short_desc": "A gentle mild foaming cleanser derived from Coconut and Sugar Beets.",
-          "preview_img": "slider-preview-1.jpg",
-          "bg_color": "#CCC",
-          "slide_img": "slider-img-1.jpg",
+          "title": "USA Made",
+          "short_desc": "Alkl of our products are hygientist trusted, dentist tested and approved by both.",
+          "preview_img": "usa-made-preview-slider.jpg",
+          "bg_color": "#FFF",
+          "slide_img": "usa-made-slider.jpg",
           "link": ""
         }
       ],
