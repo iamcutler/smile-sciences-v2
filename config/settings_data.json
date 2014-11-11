@@ -121,19 +121,12 @@
       },
       "tutorials": [
         {
-          "title": "Teeth Whitening Kit",
-          "video_id": "O7IKh0iNNes",
-          "video_type": "youtube"
-        },
-        {
-          "title": "Teeth Whitening Kit",
-          "video_id": "O7IKh0iNNes",
-          "video_type": "youtube"
-        },
-        {
-          "title": "Teeth Whitening Kit",
-          "video_id": "O7IKh0iNNes",
-          "video_type": "youtube"
+          "title": "Josh how to use our kit",
+          "link": "",
+          "image": "",
+          "video_id": "Mc5s2FZ8LaU",
+          "video_type": "youtube",
+          "type": 2
         }
       ]
     }

@@ -28,6 +28,7 @@ $section-header-font-size:  30px;
    5.   Home
    6.   Sub pages
    6.1. FAQ
+   6.2. Tutorials
    6.3. Redemptions
    7.   Collections
    8.   Product
@@ -850,6 +851,42 @@ section.faq {
       
       &.answer {
         color: #CCC;
+      }
+    }
+  }
+}
+
+/* =====================
+   6.2. Tutorials
+   ===================== */   
+section.tutorials {  
+  ul {
+    margin-left: 20px;
+    
+    li {
+      list-style: none;
+      display: inline-block;
+      margin-bottom: 20px;
+      
+      .thumbnail {
+        background: #FFF;
+        width: 566px;
+        height: 300px;
+        list-style: none;
+        display: inline-block;
+        overflow: hidden;
+        margin: 6px;
+        
+        img {
+          width: 100%;
+          min-height: 300px;
+        }
+      }
+      
+      h6 {
+        font-size: 18px;
+        font-weight: $font-weight;
+        margin: 0 0 0 10px;
       }
     }
   }
@@ -1794,6 +1831,22 @@ section#error404 {
               display: block;
             }
           }
+        }
+      }
+    }
+  }
+  
+  /* Tutorials */
+  section.tutorials {
+    ul {
+      margin-left: 0;
+      
+      li {
+        width: 100%;
+      
+        .thumbnail {
+          width: 100%;
+          margin: 0 0 6px 0;
         }
       }
     }

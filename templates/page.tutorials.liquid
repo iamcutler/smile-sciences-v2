@@ -1,0 +1,30 @@
+<section id="page">
+  <div class="main-container">
+    <h1>{{ page.title }}</h1>
+
+    {{ page.content }}
+  
+    <section class="tutorials">
+      <ul>
+        {% for tutorial in settings.tutorials %}
+        <li>
+          <div class="thumbnail">
+            {% if tutorial.type == 1 %}
+              {% if tutorial.link != "" %}<a href="{{ tutorial.link }}" target="_blank">{% endif %}
+              <img src="{{ tutorial.image | asset_url }}" alt="{{ tutorial.image_alt }}" />
+              {% if tutorial.link != "" %}</a>{% endif %}
+            {% else if tutorial.type == 2 %}
+              {% if tutorial.video_type == "youtube" %}
+                <iframe width="100%" height="100%" src="//www.youtube.com/embed/{{ tutorial.video_id }}" frameborder="0" allowfullscreen></iframe>
+              {% else if tutorial.video_type == "vimeo" %}
+                <iframe src="//player.vimeo.com/video/{{ tutorial.video_id }}" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+              {% endif %}
+            {% endif %}
+          </div>
+          <h6>{{ tutorial.title }}</h6>
+        </li>
+        {% endfor %}
+      </ul>
+    </section>
+  </div>
+</section>
