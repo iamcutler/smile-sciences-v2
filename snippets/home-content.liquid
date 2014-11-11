@@ -5,7 +5,7 @@
       <li>
         {% if home.type == 1 %}
           {% if home.link != "" %}<a href="{{ home.link }}" target="_blank">{% endif %}
-          <img src="{{ home.image }}" alt="{{ home.image_alt }}" />
+          <img src="{{ home.image | asset_url }}" alt="{{ home.image_alt }}" />
           {% if home.link != "" %}</a>{% endif %}
         {% else if home.type == 2 %}
           {% if home.video_type == "youtube" %}

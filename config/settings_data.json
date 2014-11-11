@@ -53,51 +53,35 @@
       "home_content" : [
         {
           "type" : 1,
-          "link": "http://www.smilesciences.com",
+          "link": "",
           "video_type": "",
           "video_id": "",
-          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
-          "image_alt": ""
+          "image": "taylor-home.jpg",
+          "image_alt": "Tyler Oakley"
         },
         {
           "type" : 2,
           "link": "",
           "video_type": "youtube",
-          "video_id": "i_pzbjW_EsE",
+          "video_id": "n0iB11t-F5o",
           "image": "",
-          "image_alt": ""
-        },
-        {
-          "type" : 1,
-          "link": "http://www.smilesciences.com",
-          "video_type": "",
-          "video_id": "",
-          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
-          "image_alt": ""
-        },
-        {
-          "type" : 1,
-          "link": "http://www.smilesciences.com",
-          "video_type": "",
-          "video_id": "",
-          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
-          "image_alt": ""
-        },
-        {
-          "type" : 1,
-          "link": "http://www.smilesciences.com",
-          "video_type": "",
-          "video_id": "",
-          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
-          "image_alt": ""
+          "image_alt": "10 Things I Do When I Wake Up | Tyler Oakley"
         },
         {
           "type" : 1,
           "link": "",
           "video_type": "",
           "video_id": "",
-          "image": "http://static.tumblr.com/bbdd97ac9b339d380fd33ebe6dd6baac/463dror/mczn21ylk/tumblr_static_tumblr_static_l67a0784_copy_square.jpg",
-          "image_alt": ""
+          "image": "colleen-home.jpg",
+          "image_alt": "Colleen"
+        },
+        {
+          "type" : 2,
+          "link": "",
+          "video_type": "youtube",
+          "video_id": "Mc5s2FZ8LaU",
+          "image": "",
+          "image_alt": "Getting Sexy For My Lady | Joshua DTV"
         }
       ],
       "faq": {
