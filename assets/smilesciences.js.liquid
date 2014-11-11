@@ -113,7 +113,7 @@ var SmileSciencesSlider = (function() {
       }, slide_timing);
       
       // Animate navigation
-      if({{ settings.slider.size }} > 3) {
+      if({{ settings.slider.size }} > 2) {
         $('#carousel-slides-container ul').animate({
           marginLeft: '-' + ((target - 1) * nav_width) + 'px'
         }, slide_timing);
