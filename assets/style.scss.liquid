@@ -1699,6 +1699,33 @@ footer.main {
     }
   }
   
+  nav {
+    float: right;
+    
+    ul {
+      width: 234px;
+      text-align: right;
+      
+      li {
+        list-style: none;
+        
+        &:nth-child(1) {
+          font-size: 22px;
+          border-bottom: 1px #0b99d6 solid;
+          padding-bottom: 4px;
+        }
+        
+        &:nth-child(2) {
+          padding-top: 4px;
+        }
+        
+        a:link, a:visited {
+          color: #FFF;
+        }
+      }
+    }
+  }
+  
   #copyright {
     font-size: 12px;
   }
@@ -2056,6 +2083,10 @@ section#error404 {
   
   /* Footer */
   footer {
+    nav {
+      display: none;
+    }
+    
     #newsletter-signup {
       display: none;
     }
