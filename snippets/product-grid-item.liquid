@@ -12,10 +12,10 @@
   </div>
 
   <div class="product-caption">
-    <span class="product-title">{{ item.title }}</span>
+    <span class="product-title">{{ item.title | truncate: 22 }}</span>
     
     <p class="product-description">
-      {{ item.description | truncate: 72 }}
+      {{ item.description | strip_html | truncate: 72 }}
     </p>
     
     <span class="product-price">
