@@ -53,7 +53,7 @@
               <div class="product-info">
                 <span class="price">{{ product.price | money }}</span>
                 <h6>{{ product.title }}</h6>
-                {{ product.description }}
+                {{ product.description | strip_html | truncate: 200 }}
               </div>
             </a>
             
