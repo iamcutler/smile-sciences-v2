@@ -1,0 +1,116 @@
+html, body {
+  background: #000;
+  color: #FFF;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
+}
+
+#header {
+  background: none;
+}
+
+#logo {
+  background: url('{{ 'logo.png' | asset_url }}') no-repeat;
+  background: url('{{ 'logo.svg' | asset_url }}') no-repeat;
+  width: 250px;
+  height: 105px;
+  text-indent: -9999px;
+  overflow: hidden;
+  display: block;
+  margin: 20px auto;
+}
+
+#tagline {
+  display: none;
+}
+
+#overview {
+  background: #363636;
+  color: #FFF;
+  border: none;
+}
+
+#products {
+  border-right: 1px #FFF solid;
+}
+
+#thumbs div {
+  border: none;
+}
+
+h3.plisthead {
+  color: #FFF;
+}
+
+#thumbs span {
+  color: #0396d5;
+}
+
+#cost {
+  color: #0396d5;
+  text-shadow: none;
+  font-weight: 300;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
+}
+
+#steps {
+  font-weight: 300;
+  font-family: 'Helvetica Neue', 'Helvetica', 'Arial';
+}
+
+#main {
+  background: none;
+}
+
+#email, #addresses, #buttons, #footer {
+  background: none;
+  border: none;
+}
+
+#addresses h3 {
+  color: #FFF;
+  text-shadow: none;
+}
+
+.group {
+  background: none;
+  border: none;
+}
+
+.group h3 {
+  color: #FFF;
+  text-shadow: none;
+  padding-bottom: 4px;
+}
+
+/* Forms */
+input[type='text'],
+input[type='email'],
+select {
+  background: #363636;
+  color: #626262;
+  border: none;
+  font-size: 14px;
+  padding: 6px;
+  outline: none;
+  -webkit-border-radius: 6px;
+     -moz-border-radius: 6px;
+       -o-border-radius: 6px;
+      -ms-border-radius: 6px;
+          border-radius: 6px;
+}
+
+input#commit-button, input#complete-purchase {
+  background: #0b99d6;
+  color: #FFF;
+  font-size: 16px;
+  font-weight: 300;
+  padding: 8px 14px;
+  text-transform: uppercase;
+  border: none;
+}
+
+#cancel-purchase a:link,
+#cancel-purchase a:visited {
+  color: #FFF;
+  font-size: 14px;
+}
