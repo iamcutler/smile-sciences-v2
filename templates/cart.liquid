@@ -48,7 +48,7 @@
               </a>
             </div>
             <a href="{{ collection_url }}{{ item.url }}">
-              {{ item.title }}
+              {{ item.title | truncate: 30 }}
             </a>
           </div>
           <div class="col">
