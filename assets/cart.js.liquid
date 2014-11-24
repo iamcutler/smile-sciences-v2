@@ -20,15 +20,26 @@ var SmileSciencesUpsale = (function($, Shopify) {
 
   return {
     init: function() {
-      var self = this;
+      var self = this,
+          promo_handle = 'smile-sciences-teeth-whitening-kit';
       
-      if(document.cookie.indexOf('displayOffer') < 0) {
-        // Offer if cart is not empty
-        Shopify.getCart(function(cart) {
-          if(cart.items.length > 0) {
-            $('#upsale-wrapper').fadeIn();
-      
-            self.getProduct('teeth-whitening-kit', function(product) {
+      Shopify.getCart(function(cart) {
+        self.getProduct(promo_handle, function(product) {
+          // Check if promotion is the only item in the cart
+          self.cart.standaloneUpsale(cart, product, function(response) {
+            if(response) {
+              Shopify.removeItem(cart.items[0].variant_id, function() {
+                window.location.reload();
+              });
+            }
+          });
+          
+          // Check if cookie is set to not display offer      
+          if(document.cookie.indexOf('displayOffer') < 0) {
+            // Offer if cart is not empty
+            if(cart.items.length > 0) {
+              $('#upsale-wrapper').fadeIn();
+                
               // Check if upsale is in the cart
               self.cart.checkItemInCart(cart, product, function(checked) {
                 // If found
@@ -49,10 +60,10 @@ var SmileSciencesUpsale = (function($, Shopify) {
                   });
                 }
               });
-            });
+            }
           }
         });
-      }
+      });
     },
     getProduct: function(handle, callback) {
       Shopify.getProduct(handle, function(response) {
@@ -138,24 +149,35 @@ var SmileSciencesUpsale = (function($, Shopify) {
             }
           }
           
-          // Check if up sale item is the only item in cart
-          if(cartItems.length == 1) {
-            // Loop through item variants
-            for(i = 0; i < variants.length; i++) {
-              // Up sale item is the only current item in cart
-              if(cartItems[0].variant_id == variants[i].id) {
-                self.removeItem(cartItems[0].variant_id, function() {
-                  window.location.reload();
-                });
-              }
-            }
-          }
-          
           // If count is 0, success, and return callback function
           if(count === 0 && cartItems.length > 0) {
             callback();
           }
         });
+      },
+      // Check if upsale is the only product in cart
+      standaloneUpsale: function(cart, item, callback) {
+        var cart = cart || {},
+            item = item || {},
+            self = this,
+            found = false;
+    
+        var cartItems = cart.items,
+            variants = item.variants;
+            
+        // Check if up sale item is the only item in cart
+        if(cartItems.length == 1) {
+          // Loop through item variants
+          for(i = 0; i < variants.length; i++) {
+            // Up sale item is the only current item in cart
+            if(cartItems[0].variant_id == variants[i].id) {
+              found = true;
+              break;
+            }
+          }
+        }
+      
+        if(typeof callback === 'function') callback(found);
       },
       addItem: function(item, quantity, callback) {
         var quantity = quantity || 1;
