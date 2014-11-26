@@ -9,9 +9,7 @@
     <ul>
       {% for image in product.images %}
       <li>
-        <a href="{{ image | img_url: '1024x1024' }}">
-          <img src="{{ image | img_url: 'grande' }}" alt="{{ image.alt | escape }}" />
-        </a>
+        <img src="{{ image | img_url: 'grande' }}" alt="{{ image.alt | escape }}" />
       </li>
       {% endfor %}
     </ul>
